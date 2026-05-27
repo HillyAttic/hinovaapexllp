@@ -1996,7 +1996,7 @@ textarea.w-input, textarea.w-select {
   --body-setting--font-size: 15px;
   --heading-font: "Inter Tight", sans-serif;
   --dark-color: #15141c;
-  --global-color: #ea5501;
+  --global-color: #1591DC;
   --white-color: white;
   --nav-height: 100px;
   --white: white;
@@ -6190,7 +6190,7 @@ figcaption {
 }
 
 .marquee-log-wrap {
-  border: 1px solid #ea550180;
+  border: 1px solid #1591DC80;
   border-radius: 50%;
   flex-direction: row;
   justify-content: center;
@@ -6352,7 +6352,7 @@ figcaption {
   font-family: var(--heading-font);
   color: #0000;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ea550199;
+  -webkit-text-stroke-color: #ffbf0099;
   margin-bottom: 0;
   font-size: 45px;
   font-weight: 900;
