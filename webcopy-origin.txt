@@ -1,0 +1,1220 @@
+Uri: https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\ajax\libs\webfont\1.6.26\webfont.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689de0_right-arrow.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689de0_right-arrow.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689de1_check-1.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689de1_check-1.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689e11_fa-regular-400.woff2
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689e11_fa-regular-400.woff2
+Content Type: application/octet-stream
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689e36_white-arrow.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689e36_white-arrow.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689e6b_fa-brands-400.woff2
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689e6b_fa-brands-400.woff2
+Content Type: application/octet-stream
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689e6f_Yellow-rating.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689e6f_Yellow-rating.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689e75_share.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689e75_share.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689e79_fa-solid-900.ttf
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689e79_fa-solid-900.ttf
+Content Type: application/x-font-ttf
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689e93_fa-solid-900.woff2
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689e93_fa-solid-900.woff2
+Content Type: application/octet-stream
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b689ec1_down-arrow.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b689ec1_down-arrow.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a029_bg-pattern-02.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a029_bg-pattern-02.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a038_ads-call-icon.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a038_ads-call-icon.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a03b_team-detail-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a03b_team-detail-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a050_client-logo-02.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a050_client-logo-02.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a051_client-logo-01.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a051_client-logo-01.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a052_client-logo-03.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a052_client-logo-03.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a053_client-logo-04.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a053_client-logo-04.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a054_client-logo-05.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a054_client-logo-05.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a055_client-logo-06.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a055_client-logo-06.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67512b0c631970a86b68a060_blog-quotation.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67512b0c631970a86b68a060_blog-quotation.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6751412b67b41094b3e90a4b_arrow-right.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6751412b67b41094b3e90a4b_arrow-right.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67516ef9f0f9c06d559d5820_Call-Icon.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67516ef9f0f9c06d559d5820_Call-Icon.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6752929cceb9162ce9a8f4d5_Home1-about2-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6752929cceb9162ce9a8f4d5_Home1-about2-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6756b152e1ce251b9b3b976c_up-right-arrow-global.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6756b152e1ce251b9b3b976c_up-right-arrow-global.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6756dccc872827a131562889_about-shape-bottom.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6756dccc872827a131562889_about-shape-bottom.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6756dcccd901f7159d6cd2b0_about-shape-top.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6756dcccd901f7159d6cd2b0_about-shape-top.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6756dd6983abc68c4d239e55_about-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6756dd6983abc68c4d239e55_about-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67591326dab2bcd62c361b26_icon-style-four-bg-img.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67591326dab2bcd62c361b26_icon-style-four-bg-img.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67591866f86e5ac75712de92_icon-style-six-bg-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67591866f86e5ac75712de92_icon-style-six-bg-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67592254b8f1079e4414578a_about-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67592254b8f1079e4414578a_about-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675930e0d510afac78a222d5_counter-img-01.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675930e0d510afac78a222d5_counter-img-01.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67593b088f6d1c93515c4a0d_testimonial-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67593b088f6d1c93515c4a0d_testimonial-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67595824eb91427d7328fb07_counter-three-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67595824eb91427d7328fb07_counter-three-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675969dba0bcddb16523fa7a_home3-about-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675969dba0bcddb16523fa7a_home3-about-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675a7c0043603a09df1e36a2_pricing-table-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675a7c0043603a09df1e36a2_pricing-table-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675ad5d89cb533039808e77b_white-bg-shape.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675ad5d89cb533039808e77b_white-bg-shape.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675bb9b7e848dbe18a9e31cb_header-call-icon.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675bb9b7e848dbe18a9e31cb_header-call-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675c24325c3ceba4a5dfd2b7_footer-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675c24325c3ceba4a5dfd2b7_footer-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675c25d1e966c070971d6987_Home1-about1-bg-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675c25d1e966c070971d6987_Home1-about1-bg-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675c29f04569562b4c4f5667_map-bg.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675c29f04569562b4c4f5667_map-bg.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675d05fe5e23275149668620_bg-verticle-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675d05fe5e23275149668620_bg-verticle-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675d0d21bd23c3c9caf05a0c_Home1-project-bg-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675d0d21bd23c3c9caf05a0c_Home1-project-bg-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675d0e323c445d932b15f8f9_Home1-project-bg-img-01.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675d0e323c445d932b15f8f9_Home1-project-bg-img-01.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675d1a1ff45f2702f1bb2a98_Home2-about1-bg-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675d1a1ff45f2702f1bb2a98_Home2-about1-bg-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675fd24031bc31c1a624531a_about-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675fd24031bc31c1a624531a_about-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675fd3113a4b6b9384ed26f8_about-img-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675fd3113a4b6b9384ed26f8_about-img-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675fd3a82a450f48a467b06a_about-img-05.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675fd3a82a450f48a467b06a_about-img-05.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675fd58631bc31c1a62710ea_Home3-about1-bg-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675fd58631bc31c1a62710ea_Home3-about1-bg-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675ff9117c9bc55e2ead25ac_home1-slider-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675ff9117c9bc55e2ead25ac_home1-slider-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675ff911b36704f987d99d17_home1-slider-shape.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675ff911b36704f987d99d17_home1-slider-shape.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675ff911cb0c4ebb255f160c_home1-slider-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675ff911cb0c4ebb255f160c_home1-slider-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/675ffbd04b199523c9d5d03c_home2-slider-shape.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\675ffbd04b199523c9d5d03c_home2-slider-shape.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676002e00e466350d5d0d60b_home3-slider-bg-pattern.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676002e00e466350d5d0d60b_home3-slider-bg-pattern.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6762612032d209526f140ccf_Home3-portfolio-bg-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6762612032d209526f140ccf_Home3-portfolio-bg-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6762796a317091afe1ead1b2_detail-title-icon.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6762796a317091afe1ead1b2_detail-title-icon.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67629788098ea1eaa751cdc8_doc.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67629788098ea1eaa751cdc8_doc.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67629788c3741dbedb1e824e_pdf.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67629788c3741dbedb1e824e_pdf.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6762be2188242bbe2c559386_blog-quotation.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6762be2188242bbe2c559386_blog-quotation.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67640fa64d37f6ea0603eb56_client-logo-03.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67640fa64d37f6ea0603eb56_client-logo-03.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67640fa654dddc2e6676bcb2_client-logo-02.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67640fa654dddc2e6676bcb2_client-logo-02.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67640fa75a4e4ce04f9eec5e_client-logo-01.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67640fa75a4e4ce04f9eec5e_client-logo-01.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67640fa773362f6abd7afc26_client-logo-04.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67640fa773362f6abd7afc26_client-logo-04.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67640fa79b3016aeb33aa671_client-logo-05.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67640fa79b3016aeb33aa671_client-logo-05.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67640fa7eb64f27b78725e7c_client-logo-06.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67640fa7eb64f27b78725e7c_client-logo-06.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67640fa8ed0800bb8e7560c8_client-logo-07.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67640fa8ed0800bb8e7560c8_client-logo-07.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6768f88d2837d8afcf890c58_arrow-right-global.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6768f88d2837d8afcf890c58_arrow-right-global.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f94126b4ec7439e9be3_tab2-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f94126b4ec7439e9be3_tab2-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f94b30e84ee210d0e91_tab1-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f94b30e84ee210d0e91_tab1-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f94b3a0965dc116fdc4_tab1-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f94b3a0965dc116fdc4_tab1-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f94ba4b046a9374029f_tab1-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f94ba4b046a9374029f_tab1-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f958e92b47efea5be13_tab2-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f958e92b47efea5be13_tab2-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f95930f9cc672eb8290_tab2-img-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f95930f9cc672eb8290_tab2-img-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f95a6192bbee6d1b0ff_tab2-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f95a6192bbee6d1b0ff_tab2-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67692f95ee1c0fbcc6a2a0d0_tab2-img-05.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67692f95ee1c0fbcc6a2a0d0_tab2-img-05.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67693cc5dcbdc0a5b3e089eb_Icon-03.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67693cc5dcbdc0a5b3e089eb_Icon-03.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67693d6be2b5d13c8eac578b_Icon-05.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67693d6be2b5d13c8eac578b_Icon-05.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/67693df0883d69373671fd51_Icon-06.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\67693df0883d69373671fd51_Icon-06.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6769557fa75dc198b9a2cb7d_blog-detail-side-img.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6769557fa75dc198b9a2cb7d_blog-detail-side-img.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a3fbd5a73fb803783c659_home1-slider-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a3fbd5a73fb803783c659_home1-slider-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62ed31974ab96cb3d390_Licence-img-01-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62ed31974ab96cb3d390_Licence-img-01-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62ed31974ab96cb3d390_Licence-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62ed31974ab96cb3d390_Licence-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62ed360720981cd88058_Licence-img-03-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62ed360720981cd88058_Licence-img-03-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62ed360720981cd88058_Licence-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62ed360720981cd88058_Licence-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62edc716448bb21e3b7f_Licence-img-02-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62edc716448bb21e3b7f_Licence-img-02-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62edc716448bb21e3b7f_Licence-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62edc716448bb21e3b7f_Licence-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62edd7fa5e75b0d1253d_Licence-img-04-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62edd7fa5e75b0d1253d_Licence-img-04-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676a62edd7fa5e75b0d1253d_Licence-img-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676a62edd7fa5e75b0d1253d_Licence-img-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b880319e51f09656cefd3_logo-dark.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b880319e51f09656cefd3_logo-dark.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b88036eff336bac421e4f_logo-white.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b88036eff336bac421e4f_logo-white.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b8b9839e40b2a04b196fd_home2-slider-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b8b9839e40b2a04b196fd_home2-slider-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b8b984376fcc55aa5f635_home2-slider-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b8b984376fcc55aa5f635_home2-slider-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b8b98c40debbca9e7de09_home2-slider-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b8b98c40debbca9e7de09_home2-slider-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b8bfd1cbd1edb6e613851_home3-slider-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b8bfd1cbd1edb6e613851_home3-slider-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b8bfd2e34b0069f40239b_home3-slider-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b8bfd2e34b0069f40239b_home3-slider-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b8bfd86e091d746254563_home3-slider-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b8bfd86e091d746254563_home3-slider-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b98b46eff336bac4841c8_counter-img.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b98b46eff336bac4841c8_counter-img.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9b76a7c0ee9345ce994a_Icon-02-global.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9b76a7c0ee9345ce994a_Icon-02-global.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9b7740f58439894e957b_Icon-01-global.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9b7740f58439894e957b_Icon-01-global.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9b776eff336bac494eb4_Icon-04-global.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9b776eff336bac494eb4_Icon-04-global.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9b7786e091d7462afe10_Icon-03-global.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9b7786e091d7462afe10_Icon-03-global.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9c8c1cbd1edb6e674e01_contact-icon-01.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9c8c1cbd1edb6e674e01_contact-icon-01.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9c8c2e34b0069f458352_contact-icon-04.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9c8c2e34b0069f458352_contact-icon-04.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9c8cbe32cdf7605c9b26_contact-icon-02.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9c8cbe32cdf7605c9b26_contact-icon-02.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676b9c8d4cb361883dee0b75_contact-icon-03.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676b9c8d4cb361883dee0b75_contact-icon-03.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676ba2d1a7c0ee9345d125e9_favicon.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676ba2d1a7c0ee9345d125e9_favicon.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676ba2d84376fcc55aae6365_favicon-01.png
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676ba2d84376fcc55aae6365_favicon-01.png
+Content Type: image/png
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676e2bef21378924fcd98a18_testimonial-img-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676e2bef21378924fcd98a18_testimonial-img-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676e2befe23b1b93366d1cb0_testimonial-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676e2befe23b1b93366d1cb0_testimonial-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676e2bf13a46aff80b67e9fd_testimonial-img-05.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676e2bf13a46aff80b67e9fd_testimonial-img-05.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676e2bf14a639f00021e6369_testimonial-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676e2bf14a639f00021e6369_testimonial-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676e2bf23d598d9cb4b8bf86_testimonial-img-06.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676e2bf23d598d9cb4b8bf86_testimonial-img-06.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/676e2c090a5627d3e24d8e8d_testimonial-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\676e2c090a5627d3e24d8e8d_testimonial-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/6789eec1a9aace338de24bb8_titlebar-image.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\6789eec1a9aace338de24bb8_titlebar-image.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/678f49bb9c2a5360df73b089_titlebar-image-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\678f49bb9c2a5360df73b089_titlebar-image-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/678f4a833c7ab5634b205f8b_titlebar-image-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\678f4a833c7ab5634b205f8b_titlebar-image-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/678f4ac176753460f3ab9112_titlebar-image-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\678f4ac176753460f3ab9112_titlebar-image-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/css/induztry.webflow.shared.1594297d0.css
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\css\induztry.webflow.shared.1594297d0.css
+Content Type: text/css
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.7ae3419b.16ce4ca007e4e010.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.7ae3419b.16ce4ca007e4e010.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.7f4616be.17c21cf007c4ae7f.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.7f4616be.17c21cf007c4ae7f.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.aeca0208.4e4475482c00fc5e.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.aeca0208.4e4475482c00fc5e.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.c3ad292c.be43d51cb60d807f.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.c3ad292c.be43d51cb60d807f.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.schunk.0ece9bb887d110d9.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.schunk.0ece9bb887d110d9.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.schunk.121b0d7ff03e0f4a.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.schunk.121b0d7ff03e0f4a.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.schunk.36b8fb49256177c8.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.schunk.36b8fb49256177c8.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689dc8/js/webflow.schunk.61b534daaaeddbc7.js
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689dc8\js\webflow.schunk.61b534daaaeddbc7.js
+Content Type: text/javascript
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67512b0c631970a86b689e0d_testimonial-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67512b0c631970a86b689e0d_testimonial-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67512b0c631970a86b689e68_testimonial-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67512b0c631970a86b689e68_testimonial-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67512b0c631970a86b689e9f_testimonial-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67512b0c631970a86b689e9f_testimonial-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6760f71bd10487514f7e6d11_port-08.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6760f71bd10487514f7e6d11_port-08.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc88e56d6870c57c4559_project-img-001-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc88e56d6870c57c4559_project-img-001-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc88e56d6870c57c4559_project-img-001-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc88e56d6870c57c4559_project-img-001-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc88e56d6870c57c4559_project-img-001.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc94a00cc2543f78e360_project-img-002-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc94a00cc2543f78e360_project-img-002-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc94a00cc2543f78e360_project-img-002-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc94a00cc2543f78e360_project-img-002-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dc94a00cc2543f78e360_project-img-002.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcb19c81e80aad55612b_project-img-003-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcb19c81e80aad55612b_project-img-003-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcb19c81e80aad55612b_project-img-003-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcb19c81e80aad55612b_project-img-003-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcb19c81e80aad55612b_project-img-003.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcbcbfb0a11be28826a4_project-img-004-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcbcbfb0a11be28826a4_project-img-004-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcbcbfb0a11be28826a4_project-img-004-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcbcbfb0a11be28826a4_project-img-004-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcbcbfb0a11be28826a4_project-img-004-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcbcbfb0a11be28826a4_project-img-004-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcbcbfb0a11be28826a4_project-img-004-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcbcbfb0a11be28826a4_project-img-004-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcbcbfb0a11be28826a4_project-img-004.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcbcbfb0a11be28826a4_project-img-004.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dccba33f000cb5c28d71_project-img-005-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dccba33f000cb5c28d71_project-img-005-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dccba33f000cb5c28d71_project-img-005-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dccba33f000cb5c28d71_project-img-005-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dccba33f000cb5c28d71_project-img-005-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dccba33f000cb5c28d71_project-img-005-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dccba33f000cb5c28d71_project-img-005-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dccba33f000cb5c28d71_project-img-005-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dccba33f000cb5c28d71_project-img-005.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dccba33f000cb5c28d71_project-img-005.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcd60c498f0fc8696dbd_project-img-006-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcd60c498f0fc8696dbd_project-img-006-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcd60c498f0fc8696dbd_project-img-006-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcd60c498f0fc8696dbd_project-img-006-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcd60c498f0fc8696dbd_project-img-006-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcd60c498f0fc8696dbd_project-img-006-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcd60c498f0fc8696dbd_project-img-006-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcd60c498f0fc8696dbd_project-img-006-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcd60c498f0fc8696dbd_project-img-006.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcd60c498f0fc8696dbd_project-img-006.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dce636e81f3c1f898abd_project-img-007-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dce636e81f3c1f898abd_project-img-007-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dce636e81f3c1f898abd_project-img-007-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dce636e81f3c1f898abd_project-img-007-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dce636e81f3c1f898abd_project-img-007-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dce636e81f3c1f898abd_project-img-007-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dce636e81f3c1f898abd_project-img-007-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dce636e81f3c1f898abd_project-img-007-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dce636e81f3c1f898abd_project-img-007.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dce636e81f3c1f898abd_project-img-007.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcefbfb0a11be28890e8_project-img-008-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcefbfb0a11be28890e8_project-img-008-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcefbfb0a11be28890e8_project-img-008-p-1600.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcefbfb0a11be28890e8_project-img-008-p-1600.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcefbfb0a11be28890e8_project-img-008-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcefbfb0a11be28890e8_project-img-008-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcefbfb0a11be28890e8_project-img-008-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcefbfb0a11be28890e8_project-img-008-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763dcefbfb0a11be28890e8_project-img-008.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763dcefbfb0a11be28890e8_project-img-008.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df076c6efef982c1f2fe_service-img-01-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df076c6efef982c1f2fe_service-img-01-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df076c6efef982c1f2fe_service-img-01-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df076c6efef982c1f2fe_service-img-01-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df076c6efef982c1f2fe_service-img-01-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df076c6efef982c1f2fe_service-img-01-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df076c6efef982c1f2fe_service-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df076c6efef982c1f2fe_service-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df14a1366a6bdaebe38a_service-img-02-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df14a1366a6bdaebe38a_service-img-02-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df14a1366a6bdaebe38a_service-img-02-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df14a1366a6bdaebe38a_service-img-02-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df14a1366a6bdaebe38a_service-img-02-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df14a1366a6bdaebe38a_service-img-02-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df14a1366a6bdaebe38a_service-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df14a1366a6bdaebe38a_service-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df1c36e81f3c1f8bab2b_service-img-03-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df1c36e81f3c1f8bab2b_service-img-03-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df1c36e81f3c1f8bab2b_service-img-03-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df1c36e81f3c1f8bab2b_service-img-03-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df1c36e81f3c1f8bab2b_service-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df1c36e81f3c1f8bab2b_service-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df28e2f62564ec2fe4f2_service-img-04-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df28e2f62564ec2fe4f2_service-img-04-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df28e2f62564ec2fe4f2_service-img-04-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df28e2f62564ec2fe4f2_service-img-04-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df28e2f62564ec2fe4f2_service-img-04-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df28e2f62564ec2fe4f2_service-img-04-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df28e2f62564ec2fe4f2_service-img-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df28e2f62564ec2fe4f2_service-img-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df4d5c2945a5b20e74d5_service-img-05-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df4d5c2945a5b20e74d5_service-img-05-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df4d5c2945a5b20e74d5_service-img-05-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df4d5c2945a5b20e74d5_service-img-05-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df4d5c2945a5b20e74d5_service-img-05-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df4d5c2945a5b20e74d5_service-img-05-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df4d5c2945a5b20e74d5_service-img-05.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df4d5c2945a5b20e74d5_service-img-05.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df57d247f84fddeb1a88_service-img-06-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df57d247f84fddeb1a88_service-img-06-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df57d247f84fddeb1a88_service-img-06-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df57d247f84fddeb1a88_service-img-06-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df57d247f84fddeb1a88_service-img-06-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df57d247f84fddeb1a88_service-img-06-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763df57d247f84fddeb1a88_service-img-06.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763df57d247f84fddeb1a88_service-img-06.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5627b847d57c22393c0_project-img-01-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5627b847d57c22393c0_project-img-01-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5627b847d57c22393c0_project-img-01-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5627b847d57c22393c0_project-img-01-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5627b847d57c22393c0_project-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5627b847d57c22393c0_project-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e57182f8fe13c7d4bbd8_project-img-02-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e57182f8fe13c7d4bbd8_project-img-02-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e57182f8fe13c7d4bbd8_project-img-02-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e57182f8fe13c7d4bbd8_project-img-02-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e57182f8fe13c7d4bbd8_project-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e57182f8fe13c7d4bbd8_project-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e581b78254d8de5d2c74_project-img-03-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e581b78254d8de5d2c74_project-img-03-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e581b78254d8de5d2c74_project-img-03-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e581b78254d8de5d2c74_project-img-03-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e581b78254d8de5d2c74_project-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e581b78254d8de5d2c74_project-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e58f9cd0a3e0d991fbda_project-img-04-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e58f9cd0a3e0d991fbda_project-img-04-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e58f9cd0a3e0d991fbda_project-img-04-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e58f9cd0a3e0d991fbda_project-img-04-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e58f9cd0a3e0d991fbda_project-img-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e58f9cd0a3e0d991fbda_project-img-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e59da0e4de8b4c4cfc9d_project-img-05-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e59da0e4de8b4c4cfc9d_project-img-05-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e59da0e4de8b4c4cfc9d_project-img-05-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e59da0e4de8b4c4cfc9d_project-img-05-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e59da0e4de8b4c4cfc9d_project-img-05.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e59da0e4de8b4c4cfc9d_project-img-05.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5ae545d4034af000de4_project-img-06-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5ae545d4034af000de4_project-img-06-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5ae545d4034af000de4_project-img-06-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5ae545d4034af000de4_project-img-06-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5ae545d4034af000de4_project-img-06.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5ae545d4034af000de4_project-img-06.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5baf5e766a22f5b0b39_project-img-07-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5baf5e766a22f5b0b39_project-img-07-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5baf5e766a22f5b0b39_project-img-07-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5baf5e766a22f5b0b39_project-img-07-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e5baf5e766a22f5b0b39_project-img-07.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e5baf5e766a22f5b0b39_project-img-07.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9d3e92357660e37329b_team-image-01-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9d3e92357660e37329b_team-image-01-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9d3e92357660e37329b_team-image-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9d3e92357660e37329b_team-image-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9dc82f8fe13c7d9b4d4_team-image-02-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9dc82f8fe13c7d9b4d4_team-image-02-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9dc82f8fe13c7d9b4d4_team-image-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9dc82f8fe13c7d9b4d4_team-image-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9e6045d3244d749fdd5_team-image-03-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9e6045d3244d749fdd5_team-image-03-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9e6045d3244d749fdd5_team-image-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9e6045d3244d749fdd5_team-image-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9f704c5b9cfc31e08dd_team-image-04-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9f704c5b9cfc31e08dd_team-image-04-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763e9f704c5b9cfc31e08dd_team-image-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763e9f704c5b9cfc31e08dd_team-image-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ea159c81e80aad626179_team-image-05-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ea159c81e80aad626179_team-image-05-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ea159c81e80aad626179_team-image-05.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ea159c81e80aad626179_team-image-05.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ea22f0498bdb386a7e97_team-image-06-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ea22f0498bdb386a7e97_team-image-06-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ea22f0498bdb386a7e97_team-image-06.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ea22f0498bdb386a7e97_team-image-06.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763feeeb839b368ca04a172_blog-img-01-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763feeeb839b368ca04a172_blog-img-01-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763feeeb839b368ca04a172_blog-img-01-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763feeeb839b368ca04a172_blog-img-01-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763feeeb839b368ca04a172_blog-img-01-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763feeeb839b368ca04a172_blog-img-01-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763feeeb839b368ca04a172_blog-img-01.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763feeeb839b368ca04a172_blog-img-01.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff01a5ad0fd75bc4b679_blog-img-02-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff01a5ad0fd75bc4b679_blog-img-02-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff01a5ad0fd75bc4b679_blog-img-02-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff01a5ad0fd75bc4b679_blog-img-02-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff01a5ad0fd75bc4b679_blog-img-02-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff01a5ad0fd75bc4b679_blog-img-02-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff01a5ad0fd75bc4b679_blog-img-02.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff01a5ad0fd75bc4b679_blog-img-02.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff169b3016aeb32b79d1_blog-img-03-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff169b3016aeb32b79d1_blog-img-03-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff169b3016aeb32b79d1_blog-img-03-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff169b3016aeb32b79d1_blog-img-03-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff169b3016aeb32b79d1_blog-img-03-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff169b3016aeb32b79d1_blog-img-03-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff169b3016aeb32b79d1_blog-img-03.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff169b3016aeb32b79d1_blog-img-03.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff26d3ac657492f834d9_blog-img-04-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff26d3ac657492f834d9_blog-img-04-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff26d3ac657492f834d9_blog-img-04-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff26d3ac657492f834d9_blog-img-04-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff26d3ac657492f834d9_blog-img-04.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff26d3ac657492f834d9_blog-img-04.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff3c92f4f080cf833bfb_blog-img-05-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff3c92f4f080cf833bfb_blog-img-05-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff3c92f4f080cf833bfb_blog-img-05-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff3c92f4f080cf833bfb_blog-img-05-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff3c92f4f080cf833bfb_blog-img-05.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff3c92f4f080cf833bfb_blog-img-05.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff51d6f0671e50e4d396_blog-img-06-p-1080.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff51d6f0671e50e4d396_blog-img-06-p-1080.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff51d6f0671e50e4d396_blog-img-06-p-500.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff51d6f0671e50e4d396_blog-img-06-p-500.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff51d6f0671e50e4d396_blog-img-06-p-800.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff51d6f0671e50e4d396_blog-img-06-p-800.jpg
+Content Type: image/jpg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/6763ff51d6f0671e50e4d396_blog-img-06.jpg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\6763ff51d6f0671e50e4d396_blog-img-06.jpg
+Content Type: image/jpeg
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67693bd4b195dc4a5f7d7dc5_01.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67693bd4b195dc4a5f7d7dc5_01.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67693bddba4b046a93801cb5_02.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67693bddba4b046a93801cb5_02.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67693be94542c538bae3f206_03.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67693be94542c538bae3f206_03.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67693bf3db1908a8beb9977c_04.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67693bf3db1908a8beb9977c_04.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67693bfab30e84ee21182df7_05.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67693bfab30e84ee21182df7_05.svg
+Content Type: image/svg+xml
+
+Uri: https://cdn.prod.website-files.com/67512b0c631970a86b689e0a/67693c029ee0061b839105bc_06.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\67512b0c631970a86b689e0a\67693c029ee0061b839105bc_06.svg
+Content Type: image/svg+xml
+
+Uri: https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\img\background-image.svg
+Content Type: image/svg+xml
+
+Uri: https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67512b0c631970a86b689dc8
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\js\jquery-3.5.1.min.dc5e7f18c8.js
+Content Type: application/javascript
+
+Uri: https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\static\custom-checkbox-checkmark.589d534424.svg
+Content Type: image/svg+xml
+
+Uri: https://induztry.webflow.io/
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\index.htm
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/about-us
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\about-us.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/author/anais-emmerich
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\author\anais-emmerich.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/author/lavonne-nolan
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\author\lavonne-nolan.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/author/marc-ratke
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\author\marc-ratke.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/blog
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\blog.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/blog-02
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\blog-02.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/category/management
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\category\management.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/category/manufacture
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\category\manufacture.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/category/production
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\category\production.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/category/remodeling
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\category\remodeling.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/contact
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\contact.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/faq-page
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\faq-page.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/homepage-2
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\homepage-2.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/homepage-3
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\homepage-3.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/our-team
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\our-team.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/post/future-developments-and-trends-in-metallurgy
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\post\future-developments-and-trends-in-metallurgy.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/post/gaining-proficiency-in-metallurgy-quality-control
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\post\gaining-proficiency-in-metallurgy-quality-control.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/post/interactive-technologies-in-manufacturing-facilities
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\post\interactive-technologies-in-manufacturing-facilities.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/post/learning-more-about-heat-treatment-methods
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\post\learning-more-about-heat-treatment-methods.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/post/metals-which-shape-our-world-a-greater-look
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\post\metals-which-shape-our-world-a-greater-look.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/post/revealing-the-mysteries-around-steel-grades
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\post\revealing-the-mysteries-around-steel-grades.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/pricing-plan
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\pricing-plan.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/chemical-refinery
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\chemical-refinery.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/energy-power-project
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\energy-power-project.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/factory-remodeling
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\factory-remodeling.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/finishing-coating
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\finishing-coating.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/manufacturing
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\manufacturing.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/metal-production
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\metal-production.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/thermal-processing
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\thermal-processing.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/project/warehouse-support
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\project\warehouse-support.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/projects
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\projects.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/services
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\services.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/services/highly-regulated-industry
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\services\highly-regulated-industry.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/services/industrial-metalworking
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\services\industrial-metalworking.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/services/making-steel-structures
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\services\making-steel-structures.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/services/personalized-fabrication
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\services\personalized-fabrication.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/services/services-for-rolling-mills
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\services\services-for-rolling-mills.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/services/the-production-of-steel
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\services\the-production-of-steel.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/team/bettie-schinner
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\team\bettie-schinner.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/team/connor-grimes
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\team\connor-grimes.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/team/jake-nicholson
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\team\jake-nicholson.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/team/marko-daniel
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\team\marko-daniel.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/team/robert-jhonson
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\team\robert-jhonson.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/team/sony-miltar
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\team\sony-miltar.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/utility-pages/changelog
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\utility-pages\changelog.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/utility-pages/licenses
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\utility-pages\licenses.html
+Content Type: text/html
+
+Uri: https://induztry.webflow.io/utility-pages/style-guide
+File Name: C:\Downloaded Web Sites\induztry.webflow.io\utility-pages\style-guide.html
+Content Type: text/html
+
