@@ -1,0 +1,4 @@
+node_modules/
+dist/
+wrangler.toml
+service-account.json
