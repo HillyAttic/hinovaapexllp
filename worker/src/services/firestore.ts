@@ -236,7 +236,7 @@ export class FirestoreClient {
     });
 
     if (!res.ok) throw new Error(`Firestore query error: ${await res.text()}`);
-    const results = await res.json();
+    const results = await res.json() as any[];
     return results
       .filter((r: any) => r.document)
       .map((r: any) => docToData(r.document));

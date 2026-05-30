@@ -2585,7 +2585,10 @@ figcaption {
 .logo {
   line-height: var(--nav-height);
   vertical-align: middle;
-  height: 60px;
+  height: 100px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
   display: inline-block;
 }
 
@@ -3457,7 +3460,10 @@ figcaption {
 }
 
 .footer-logo {
-  height: 50px;
+  height: 90px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
   margin-bottom: 30px;
 }
 
