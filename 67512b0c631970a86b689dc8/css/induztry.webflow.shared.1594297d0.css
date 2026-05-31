@@ -10820,3 +10820,34 @@ figcaption {
     grid-area: span 2 / span 1 / span 2 / span 1;
   }
 }
+
+/* Inline SVG icon sizing (replaces icon-font glyphs) */
+.icon.social svg {
+  width: 14px;
+  height: 14px;
+}
+.social-link.blog-post-link .icon.social svg {
+  width: 16px;
+  height: 16px;
+}
+.meta-one-icons svg,
+.meta-icons svg {
+  width: 16px;
+  height: 16px;
+}
+.list-style-02-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.blog-two-meta-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.top-bar-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.play-icon svg {
+  width: 14px;
+  height: 14px;
+}
