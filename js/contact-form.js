@@ -1,10 +1,11 @@
-// Contact Form Handler
+// Contact Form Handler -> posts to the server-side Worker (/api/contact).
+// The Worker writes to Firestore using the secret service account; no keys in the browser.
 (function() {
   var form = document.getElementById('wf-form-Contact-Form');
   if (!form) return;
 
-  var successDiv = form.querySelector('.success-message-2');
-  var errorDiv = form.querySelector('.w-form-fail');
+  var successDiv = form.parentElement.querySelector('.success-message-2');
+  var errorDiv = form.parentElement.querySelector('.w-form-fail');
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();

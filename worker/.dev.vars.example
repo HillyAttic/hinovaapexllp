@@ -1,0 +1,12 @@
+# Local development secrets for Wrangler (the Cloudflare Worker dev server reads this file).
+# Copy to ".dev.vars" and fill in real values. NEVER commit ".dev.vars".
+#
+# For production, do NOT use this file. Set secrets with:
+#   npx wrangler secret put FIREBASE_SERVICE_ACCOUNT
+#   npx wrangler secret put ADMIN_TOKEN
+
+# Firebase service account JSON, on a single line, wrapped in single quotes.
+FIREBASE_SERVICE_ACCOUNT='{"type":"service_account","project_id":"YOUR_PROJECT_ID","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-xxxx@YOUR_PROJECT_ID.iam.gserviceaccount.com","client_id":"...","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"...","universe_domain":"googleapis.com"}'
+
+# Bearer token protecting the /api/admin/* endpoints. Use a long random string.
+ADMIN_TOKEN='your-long-random-admin-token'

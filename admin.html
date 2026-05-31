@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Panel | HI-NOVA APEX LLP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link href="67512b0c631970a86b689dc8/676ba2d84376fcc55aae6365_favicon-01.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    :root {
+      --brand: #e8531a;
+      --dark: #15141c;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f5f6f8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter Tight", "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+    }
+    a { color: var(--brand); }
+
+    /* Login */
+    .login-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .login-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.06);
+    }
+    .login-card h1 { font-size: 22px; margin: 0 0 4px; }
+    .login-card p { color: var(--muted); margin: 0 0 24px; font-size: 14px; }
+
+    label { display: block; font-size: 13px; font-weight: 600; margin: 14px 0 6px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #fff;
+    }
+    input:focus, textarea:focus, select:focus { outline: 2px solid rgba(232,83,26,.35); border-color: var(--brand); }
+    textarea { min-height: 220px; resize: vertical; line-height: 1.5; }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 9px;
+      font-family: inherit;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      padding: 12px 18px;
+      font-size: 15px;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .btn-primary:disabled { opacity: .6; cursor: default; }
+
+    /* App shell */
+    .admin-topbar {
+      background: var(--dark);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+    }
+    .admin-topbar .brand { font-weight: 700; letter-spacing: .3px; }
+    .admin-topbar .right { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+    #user-email { color: #cbd5e1; }
+    #logout-btn { background: rgba(255,255,255,.12); color: #fff; padding: 8px 14px; font-size: 13px; }
+
+    .admin-tabs {
+      display: flex;
+      gap: 4px;
+      background: #fff;
+      padding: 0 24px;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+    .admin-tab {
+      background: transparent;
+      color: var(--muted);
+      padding: 16px 18px;
+      font-size: 14px;
+      border-bottom: 3px solid transparent;
+    }
+    .admin-tab.active { color: var(--dark); border-bottom-color: var(--brand); }
+
+    .admin-content { max-width: 980px; margin: 0 auto; padding: 28px 24px 64px; }
+    .admin-panel { display: none; }
+    .admin-panel.active { display: block; }
+    .admin-panel h2 { font-size: 20px; margin: 0 0 4px; }
+    .admin-panel .sub { color: var(--muted); font-size: 14px; margin: 0 0 22px; }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+    .form-grid .full { grid-column: 1 / -1; }
+    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+
+    .admin-msg { margin-top: 16px; padding: 11px 14px; border-radius: 9px; font-size: 14px; display: none; }
+    .admin-msg.success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .admin-msg.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+    .admin-loading, .admin-empty { color: var(--muted); padding: 22px; text-align: center; }
+
+    .admin-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; padding: 14px 16px; background: #fff;
+      border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px;
+    }
+    .admin-row-title { font-weight: 600; }
+    .admin-row-sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .admin-row-actions { display: flex; gap: 8px; align-items: center; }
+    .admin-btn-link { font-size: 13px; text-decoration: none; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; }
+    .admin-btn-danger { background: #fef2f2; color: #b91c1c; padding: 7px 12px; font-size: 13px; border: 1px solid #fecaca; }
+    .admin-btn-small { background: var(--brand); color: #fff; padding: 7px 12px; font-size: 13px; margin-top: 12px; }
+
+    .admin-card {
+      background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--line);
+      border-radius: 10px; padding: 16px 18px; margin-bottom: 12px;
+    }
+    .admin-card.unread { border-left-color: var(--brand); background: #fffaf7; }
+    .admin-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .admin-card-date { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .admin-card-meta { font-size: 13px; margin: 4px 0; }
+    .admin-card-subject { font-size: 13px; color: var(--muted); margin: 4px 0; }
+    .admin-card-body { font-size: 14px; line-height: 1.55; white-space: pre-wrap; margin-top: 6px; }
+    .login-error { display:none; margin-top:14px; padding:11px 14px; border-radius:9px; background:#fef2f2; color:#991b1b; border:1px solid #fecaca; font-size:14px; }
+    .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN VIEW -->
+  <div id="login-view" class="login-wrap">
+    <div class="login-card">
+      <h1>Admin Login</h1>
+      <p>HI-NOVA APEX LLP &mdash; restricted access</p>
+      <form id="login-form">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" autocomplete="username" required>
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" autocomplete="current-password" required>
+        <button type="submit" class="btn-primary">Sign In</button>
+        <div id="login-error" class="login-error"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- APP VIEW -->
+  <div id="app-view" style="display:none">
+    <div class="admin-topbar">
+      <div class="brand">HI-NOVA APEX &middot; Admin</div>
+      <div class="right">
+        <span id="user-email"></span>
+        <button id="logout-btn">Log out</button>
+      </div>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-target="panel-create">Create Post</button>
+      <button class="admin-tab" data-target="panel-posts">Manage Posts</button>
+      <button class="admin-tab" data-target="panel-contacts">Contact Messages</button>
+      <button class="admin-tab" data-target="panel-newsletter">Newsletter</button>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- Create -->
+      <section id="panel-create" class="admin-panel active">
+        <h2>Create Blog Post</h2>
+        <p class="sub">Published posts appear on the blog page automatically.</p>
+        <div class="card">
+          <form id="blog-form">
+            <div class="form-grid">
+              <div class="full">
+                <label for="post-title">Title *</label>
+                <input type="text" id="post-title" required>
+              </div>
+              <div>
+                <label for="post-slug">Slug</label>
+                <input type="text" id="post-slug" placeholder="auto-generated from title">
+                <div class="hint">Used in the post URL. Leave blank to auto-generate.</div>
+              </div>
+              <div>
+                <label for="post-category">Category *</label>
+                <input type="text" id="post-category" placeholder="e.g. Manufacture" required>
+              </div>
+              <div>
+                <label for="post-author">Author</label>
+                <input type="text" id="post-author" placeholder="Admin">
+              </div>
+              <div>
+                <label for="post-cover">Cover image URL</label>
+                <input type="text" id="post-cover" placeholder="https://...">
+              </div>
+              <div class="full">
+                <label for="post-description">Short description</label>
+                <input type="text" id="post-description" placeholder="One-line summary shown in listings">
+              </div>
+              <div class="full">
+                <label for="post-content">Content (HTML allowed) *</label>
+                <textarea id="post-content" placeholder="Write the post content here. Basic HTML like <p>, <h5>, <ul>, <strong> is supported." required></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary" style="max-width:220px">Publish Post</button>
+            <div id="blog-msg" class="admin-msg"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Manage Posts -->
+      <section id="panel-posts" class="admin-panel">
+        <h2>Manage Posts</h2>
+        <p class="sub">All blog posts stored in Firestore.</p>
+        <div id="posts-list"></div>
+      </section>
+
+      <!-- Contacts -->
+      <section id="panel-contacts" class="admin-panel">
+        <h2>Contact Messages</h2>
+        <p class="sub">Submissions from the website contact form.</p>
+        <div id="contacts-list"></div>
+      </section>
+
+      <!-- Newsletter -->
+      <section id="panel-newsletter" class="admin-panel">
+        <h2>Newsletter Subscribers</h2>
+        <p class="sub">Emails collected from the footer subscription form.</p>
+        <div id="newsletter-list"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

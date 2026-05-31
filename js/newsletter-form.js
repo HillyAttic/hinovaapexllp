@@ -1,4 +1,5 @@
-// Newsletter Form Handler
+// Newsletter Form Handler -> posts to the server-side Worker (/api/newsletter).
+// The Worker writes to Firestore using the secret service account; no keys in the browser.
 (function() {
   var forms = document.querySelectorAll('#wf-form-Footer-Form');
 
@@ -9,7 +10,7 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var emailInput = document.getElementById('Footer-Email-2');
+      var emailInput = form.querySelector('input[type="email"]') || document.getElementById('Footer-Email-2');
       var email = emailInput ? emailInput.value : '';
 
       // Hide previous messages
