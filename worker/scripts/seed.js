@@ -74,11 +74,15 @@ async function seed() {
   // Get access token
   const token = await getAccessToken(serviceAccount);
   const baseUrl = `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents`;
+  const force = process.env.FORCE === '1';
+
+  let created = 0, updated = 0, skipped = 0, failed = 0;
 
   for (const post of POSTS) {
     const filePath = path.join(SITE_ROOT, 'post', post.file);
     if (!fs.existsSync(filePath)) {
       console.warn(`File not found, skipping: ${post.file}`);
+      skipped++;
       continue;
     }
 
@@ -89,10 +93,11 @@ async function seed() {
 
     if (!jsonLd) {
       console.warn(`No JSON-LD found in ${post.file}, skipping`);
+      skipped++;
       continue;
     }
 
-    const doc = {
+    const docData = {
       slug: post.slug,
       title: title || jsonLd.headline,
       description: jsonLd.description || '',
@@ -109,7 +114,7 @@ async function seed() {
 
     // Encode fields for Firestore REST API
     const fields = {};
-    for (const [key, value] of Object.entries(doc)) {
+    for (const [key, value] of Object.entries(docData)) {
       if (typeof value === 'string') {
         fields[key] = { stringValue: value };
       } else if (typeof value === 'boolean') {
@@ -117,8 +122,29 @@ async function seed() {
       }
     }
 
-    const res = await fetch(`${baseUrl}/blog_posts`, {
-      method: 'POST',
+    // Idempotency: use slug as the document id, and skip if the doc already
+    // exists (unless FORCE=1 is set).
+    const docId = post.slug;
+    const docPath = `${baseUrl}/blog_posts/${encodeURIComponent(docId)}`;
+
+    if (!force) {
+      try {
+        const checkRes = await fetch(docPath, {
+          method: 'GET',
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (checkRes.ok) {
+          console.log(`Skipped (exists): ${docData.title} (id: ${docId}). Set FORCE=1 to overwrite.`);
+          skipped++;
+          continue;
+        }
+      } catch (e) {
+        // Network or auth issue — let the write attempt fail with a clear error.
+      }
+    }
+
+    const res = await fetch(docPath, {
+      method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
@@ -127,16 +153,17 @@ async function seed() {
     });
 
     if (res.ok) {
-      const result = await res.json();
-      const docId = result.name.split('/').pop();
-      console.log(`Created: ${doc.title} (id: ${docId})`);
+      const existed = !force; // if we passed the skip check, we just overwrote via PATCH
+      console.log(`${existed ? 'Updated' : 'Created'}: ${docData.title} (id: ${docId})`);
+      if (existed) updated++; else created++;
     } else {
       const err = await res.text();
-      console.error(`Failed to create ${post.slug}: ${err}`);
+      console.error(`Failed to write ${post.slug}: ${err}`);
+      failed++;
     }
   }
 
-  console.log('\nSeed complete!');
+  console.log(`\nSeed complete! Created: ${created}, Updated: ${updated}, Skipped: ${skipped}, Failed: ${failed}`);
 }
 
 async function getAccessToken(sa) {

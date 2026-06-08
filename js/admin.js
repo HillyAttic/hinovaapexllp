@@ -102,11 +102,16 @@ tabs.forEach(function (tab) {
   });
 });
 
-// ---- Blog: create ----
+// ---- Blog: create / edit ----
 const blogForm = document.getElementById("blog-form");
 const blogMsg = document.getElementById("blog-msg");
 const titleInput = document.getElementById("post-title");
 const slugInput = document.getElementById("post-slug");
+const editIdInput = document.getElementById("post-edit-id");
+const formModeEl = document.getElementById("post-form-mode");
+const formTitleEl = document.getElementById("post-form-title");
+const submitBtn = document.getElementById("blog-form-submit");
+const cancelBtn = document.getElementById("blog-form-cancel");
 
 titleInput.addEventListener("blur", function () {
   if (!slugInput.value.trim() && titleInput.value.trim()) {
@@ -114,44 +119,111 @@ titleInput.addEventListener("blur", function () {
   }
 });
 
-blogForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  hide(blogMsg);
-
-  const data = {
+function readFormData() {
+  return {
     slug: slugInput.value.trim() || slugify(titleInput.value),
     title: titleInput.value.trim(),
     description: document.getElementById("post-description").value.trim(),
     category: document.getElementById("post-category").value.trim(),
     author_name: document.getElementById("post-author").value.trim() || "Admin",
+    author_email: document.getElementById("post-author-email").value.trim(),
+    author_image: document.getElementById("post-author-image").value.trim(),
+    author_description: document.getElementById("post-author-desc").value.trim(),
     cover_image: document.getElementById("post-cover").value.trim(),
     content_html: document.getElementById("post-content").value,
-    date_published: new Date().toISOString(),
-    date_modified: new Date().toISOString(),
-    createdAt: serverTimestamp()
+    date_modified: new Date().toISOString()
   };
+}
+
+function enterCreateMode() {
+  editIdInput.value = "";
+  if (formModeEl) { formModeEl.textContent = "New"; }
+  if (formTitleEl && formTitleEl.firstChild) formTitleEl.childNodes[0].nodeValue = "Create Blog Post ";
+  if (submitBtn) submitBtn.textContent = "Publish Post";
+  if (cancelBtn) cancelBtn.style.display = "none";
+  blogForm.reset();
+  hide(blogMsg);
+}
+
+function enterEditMode(id, data) {
+  editIdInput.value = id;
+  if (formModeEl) { formModeEl.textContent = "Editing"; }
+  if (formTitleEl && formTitleEl.firstChild) formTitleEl.childNodes[0].nodeValue = "Edit Blog Post ";
+  if (submitBtn) submitBtn.textContent = "Update Post";
+  if (cancelBtn) cancelBtn.style.display = "";
+
+  titleInput.value = data.title || "";
+  slugInput.value = data.slug || "";
+  document.getElementById("post-description").value = data.description || "";
+  document.getElementById("post-category").value = data.category || "";
+  document.getElementById("post-author").value = data.author_name || "";
+  document.getElementById("post-author-email").value = data.author_email || "";
+  document.getElementById("post-author-image").value = data.author_image || "";
+  document.getElementById("post-author-desc").value = data.author_description || "";
+  document.getElementById("post-cover").value = data.cover_image || "";
+  document.getElementById("post-content").value = data.content_html || "";
+
+  hide(blogMsg);
+  // Switch to the create tab and scroll to form
+  document.querySelectorAll('.admin-tab').forEach(function (t) { t.classList.remove('active'); });
+  document.querySelectorAll('.admin-panel').forEach(function (p) { p.classList.remove('active'); });
+  const createTab = document.querySelector('.admin-tab[data-target="panel-create"]');
+  if (createTab) createTab.classList.add('active');
+  const panel = document.getElementById('panel-create');
+  if (panel) panel.classList.add('active');
+  blogForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+if (cancelBtn) {
+  cancelBtn.addEventListener("click", function () { enterCreateMode(); });
+}
+
+blogForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  hide(blogMsg);
+
+  const data = readFormData();
 
   if (!data.title || !data.category || !data.content_html) {
     showMsg(blogMsg, "Title, category and content are required.", true);
     return;
   }
 
-  const btn = blogForm.querySelector("button[type=submit]");
-  if (btn) { btn.disabled = true; btn.textContent = "Publishing..."; }
+  const editId = editIdInput.value.trim();
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = editId ? "Updating..." : "Publishing..."; }
 
-  addDoc(collection(db, "blog_posts"), data)
-    .then(function () {
-      showMsg(blogMsg, "Post published successfully.", false);
-      blogForm.reset();
-      loadPosts();
-    })
-    .catch(function (err) {
-      console.error(err);
-      showMsg(blogMsg, "Failed to publish: " + (err.message || err.code), true);
-    })
-    .finally(function () {
-      if (btn) { btn.disabled = false; btn.textContent = "Publish Post"; }
-    });
+  function done(successMsg) {
+    showMsg(blogMsg, successMsg, false);
+    loadPosts();
+    enterCreateMode();
+  }
+  function fail(err) {
+    console.error(err);
+    showMsg(blogMsg, "Failed: " + (err.message || err.code), true);
+  }
+  function reenable() {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = editId ? "Update Post" : "Publish Post";
+    }
+  }
+
+  if (editId) {
+    // Update existing post — preserve date_published & createdAt
+    updateDoc(doc(db, "blog_posts", editId), data)
+      .then(function () { done("Post updated successfully."); })
+      .catch(fail)
+      .finally(reenable);
+  } else {
+    // Create new post
+    addDoc(collection(db, "blog_posts"), Object.assign({}, data, {
+      date_published: new Date().toISOString(),
+      createdAt: serverTimestamp()
+    }))
+      .then(function () { done("Post published successfully."); })
+      .catch(fail)
+      .finally(reenable);
+  }
 });
 
 function showMsg(el, text, isError) {
@@ -184,6 +256,7 @@ function loadPosts() {
             '<div class="admin-row-sub">' + esc(p.category) + ' &middot; ' + fmtDate(p.date_published) + '</div>' +
           '</div>' +
           '<div class="admin-row-actions">' +
+            '<button class="admin-btn-secondary" data-edit="' + esc(p._id) + '">Edit</button>' +
             '<a class="admin-btn-link" href="post-view.html?slug=' + encodeURIComponent(p.slug) + '" target="_blank">View</a>' +
             '<button class="admin-btn-danger" data-del="' + esc(p._id) + '">Delete</button>' +
           '</div>' +
@@ -196,12 +269,25 @@ function loadPosts() {
 }
 
 postsList.addEventListener("click", function (e) {
-  const btn = e.target.closest("[data-del]");
-  if (!btn) return;
-  if (!confirm("Delete this post permanently?")) return;
-  deleteDoc(doc(db, "blog_posts", btn.getAttribute("data-del")))
-    .then(loadPosts)
-    .catch(function (err) { alert("Delete failed: " + err.message); });
+  const delBtn = e.target.closest("[data-del]");
+  if (delBtn) {
+    if (!confirm("Delete this post permanently?")) return;
+    deleteDoc(doc(db, "blog_posts", delBtn.getAttribute("data-del")))
+      .then(loadPosts)
+      .catch(function (err) { alert("Delete failed: " + err.message); });
+    return;
+  }
+  const editBtn = e.target.closest("[data-edit]");
+  if (editBtn) {
+    const id = editBtn.getAttribute("data-edit");
+    getDocs(collection(db, "blog_posts"))
+      .then(function (snap) {
+        const found = snap.docs.find(function (d) { return d.id === id; });
+        if (found) enterEditMode(found.id, found.data());
+      })
+      .catch(function (err) { alert("Failed to load post: " + err.message); });
+    return;
+  }
 });
 
 // ---- Contacts ----

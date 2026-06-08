@@ -1,5 +1,7 @@
-// Loads admin-created blog posts from Firestore and prepends them to the
-// existing static cards on blog.html. Read access is public per security rules.
+// Loads blog posts from Firestore and renders them on blog.html.
+// On a successful fetch the Firestore posts REPLACE the static cards so the
+// page is driven entirely by the database. If Firestore is unreachable, the
+// original static cards remain as a fallback. Read access is public per rules.
 import { db } from "./firebase-config.js";
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -17,12 +19,18 @@ function fmtDate(v) {
 
 const PLACEHOLDER = "67512b0c631970a86b689e0a/6763feeeb839b368ca04a172_blog-img-01.jpg";
 
+// All posts (seeded + admin-created) link to the dynamic viewer.
+// The viewer now renders the same Webflow template as the legacy static pages.
+function postHref(p) {
+  return "post-view.html?slug=" + encodeURIComponent(p.slug || "");
+}
+
 function cardHtml(p) {
-  const img = p.cover_image && /^https?:|^67512b/.test(p.cover_image) ? p.cover_image : PLACEHOLDER;
-  const href = "post-view.html?slug=" + encodeURIComponent(p.slug);
+  // Accept http(s), site-relative, and data: URLs.
+  const img = p.cover_image && /^https?:|^\/|^(data:)/i.test(p.cover_image) ? p.cover_image : PLACEHOLDER;
   return '' +
     '<div role="listitem" class="blog-section-item w-dyn-item">' +
-      '<a href="' + href + '" class="blog-one-link w-inline-block">' +
+      '<a href="' + esc(postHref(p)) + '" class="blog-one-link w-inline-block">' +
         '<div class="blog-one-image">' +
           '<img class="blog-one-preview" src="' + esc(img) + '" alt="' + esc(p.title) + '" loading="lazy">' +
           '<div class="blog-bottom-curve-wrap">' +
@@ -50,14 +58,14 @@ function cardHtml(p) {
     .then(function (snap) {
       const rows = [];
       snap.forEach(function (d) { rows.push(Object.assign({ _id: d.id }, d.data())); });
-      if (!rows.length) return;
+      if (!rows.length) return; // keep static fallback when collection is empty
       rows.sort(function (a, b) {
         return new Date(b.date_published || 0) - new Date(a.date_published || 0);
       });
-      const html = rows.map(cardHtml).join("");
-      listContainer.insertAdjacentHTML("afterbegin", html);
+      // Replace the static cards with the database-driven ones.
+      listContainer.innerHTML = rows.map(cardHtml).join("");
     })
     .catch(function (err) {
-      console.warn("Blog posts could not be loaded from Firestore:", err);
+      console.warn("Blog posts could not be loaded from Firestore; showing static fallback.", err);
     });
 })();

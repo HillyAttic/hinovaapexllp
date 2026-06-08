@@ -135,8 +135,19 @@
     .admin-row-sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
     .admin-row-actions { display: flex; gap: 8px; align-items: center; }
     .admin-btn-link { font-size: 13px; text-decoration: none; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; }
+    .admin-btn-secondary { background: #fff; color: var(--dark); padding: 7px 12px; font-size: 13px; border: 1px solid var(--line); }
+    .admin-btn-secondary:hover { background: #f9fafb; }
     .admin-btn-danger { background: #fef2f2; color: #b91c1c; padding: 7px 12px; font-size: 13px; border: 1px solid #fecaca; }
     .admin-btn-small { background: var(--brand); color: #fff; padding: 7px 12px; font-size: 13px; margin-top: 12px; }
+
+    .form-mode { display: inline-block; font-size: 12px; font-weight: 600; color: var(--brand); background: #fff5ef; border: 1px solid #fcd9c4; padding: 3px 10px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
+    .form-actions { display: flex; gap: 10px; align-items: center; margin-top: 20px; }
+    .btn-cancel { background: transparent; color: var(--muted); border: 1px solid var(--line); padding: 12px 18px; font-size: 15px; }
+    .btn-cancel:hover { color: var(--dark); background: #f9fafb; }
+    .form-actions .btn-primary { margin-top: 0; width: auto; }
+    details.advanced { margin-top: 10px; }
+    details.advanced > summary { cursor: pointer; color: var(--muted); font-size: 13px; padding: 6px 0; user-select: none; }
+    details.advanced > summary:hover { color: var(--brand); }
 
     .admin-card {
       background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--line);
@@ -189,12 +200,13 @@
 
     <div class="admin-content">
 
-      <!-- Create -->
+      <!-- Create / Edit -->
       <section id="panel-create" class="admin-panel active">
-        <h2>Create Blog Post</h2>
+        <h2 id="post-form-title">Create Blog Post <span id="post-form-mode" class="form-mode">New</span></h2>
         <p class="sub">Published posts appear on the blog page automatically.</p>
         <div class="card">
           <form id="blog-form">
+            <input type="hidden" id="post-edit-id" value="">
             <div class="form-grid">
               <div class="full">
                 <label for="post-title">Title *</label>
@@ -210,8 +222,17 @@
                 <input type="text" id="post-category" placeholder="e.g. Manufacture" required>
               </div>
               <div>
-                <label for="post-author">Author</label>
+                <label for="post-author">Author name</label>
                 <input type="text" id="post-author" placeholder="Admin">
+                <details class="advanced">
+                  <summary>Advanced author fields</summary>
+                  <label for="post-author-email" style="margin-top:12px">Author email</label>
+                  <input type="email" id="post-author-email" placeholder="admin@hinova.com">
+                  <label for="post-author-image">Author image URL</label>
+                  <input type="text" id="post-author-image" placeholder="https://...">
+                  <label for="post-author-desc">Author bio</label>
+                  <textarea id="post-author-desc" style="min-height:90px" placeholder="Short bio shown in the post's author box"></textarea>
+                </details>
               </div>
               <div>
                 <label for="post-cover">Cover image URL</label>
@@ -226,7 +247,10 @@
                 <textarea id="post-content" placeholder="Write the post content here. Basic HTML like <p>, <h5>, <ul>, <strong> is supported." required></textarea>
               </div>
             </div>
-            <button type="submit" class="btn-primary" style="max-width:220px">Publish Post</button>
+            <div class="form-actions">
+              <button type="submit" id="blog-form-submit" class="btn-primary" style="max-width:220px">Publish Post</button>
+              <button type="button" id="blog-form-cancel" class="btn-cancel" style="display:none">Cancel</button>
+            </div>
             <div id="blog-msg" class="admin-msg"></div>
           </form>
         </div>
