@@ -59,11 +59,15 @@ function cardHtml(p) {
       const rows = [];
       snap.forEach(function (d) { rows.push(Object.assign({ _id: d.id }, d.data())); });
       if (!rows.length) return; // keep static fallback when collection is empty
-      rows.sort(function (a, b) {
+      // Filter out drafts — they are admin-only and must not appear on the public blog.
+      const published = rows.filter(function (p) {
+        return (p.status || "published") !== "draft";
+      });
+      published.sort(function (a, b) {
         return new Date(b.date_published || 0) - new Date(a.date_published || 0);
       });
       // Replace the static cards with the database-driven ones.
-      listContainer.innerHTML = rows.map(cardHtml).join("");
+      listContainer.innerHTML = published.map(cardHtml).join("");
     })
     .catch(function (err) {
       console.warn("Blog posts could not be loaded from Firestore; showing static fallback.", err);

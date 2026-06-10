@@ -2,8 +2,8 @@
 // Uses the full Webflow template (navbar, sidebar, footer) and populates every
 // field from Firestore. Also fetches the full collection once for the sidebar
 // (Categories + Recent Posts) so admin-created posts show up everywhere.
-import { db } from "./firebase-config.js";
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.12/firebase-firestore.js";
+import { auth, db } from "./firebase-config.js";
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const PLACEHOLDER_IMG = "67512b0c631970a86b689e0a/6763feeeb839b368ca04a172_blog-img-01.jpg";
 
@@ -78,6 +78,9 @@ function renderPost(post) {
 
   // Body (authored by admin; trusted)
   if (els.body) els.body.innerHTML = post.content_html || "<p>(No content)</p>";
+
+  // Tags — render as pills below the post body
+  renderTags(post.tags);
 
   // Author box — show only if we have at least a name
   const hasAuthor = !!(post.author_name || post.author_image || post.author_description);
@@ -184,6 +187,27 @@ function renderNotFound(msg) {
   }
   if (els.coverWrap) els.coverWrap.style.display = "none";
   if (els.authorBox) els.authorBox.style.display = "none";
+  // Remove any stale tags block
+  const stale = document.getElementById("pv-tags");
+  if (stale) stale.remove();
+}
+
+function renderTags(tags) {
+  // Remove any previously rendered block
+  const existing = document.getElementById("pv-tags");
+  if (existing) existing.remove();
+  if (!Array.isArray(tags) || !tags.length) return;
+  if (!els.body) return;
+  const wrap = document.createElement("div");
+  wrap.id = "pv-tags";
+  wrap.className = "pv-tags";
+  wrap.innerHTML = tags.map(function (t) {
+    return '<span class="pv-tag">' + esc(String(t).trim()) + '</span>';
+  }).join("");
+  // Insert directly after the body element
+  if (els.body.parentNode) {
+    els.body.parentNode.insertBefore(wrap, els.body.nextSibling);
+  }
 }
 
 (async function init() {
@@ -194,10 +218,15 @@ function renderNotFound(msg) {
     const snap = await getDocs(collection(db, "blog_posts"));
     const rows = [];
     snap.forEach(function (d) { rows.push(Object.assign({ _id: d.id }, d.data())); });
-    const found = rows.find(function (p) { return p.slug === slug; });
+
+    // Admins can preview drafts; everyone else can only see published posts.
+    const isAdmin = !!auth.currentUser;
+    const visible = isAdmin ? rows : rows.filter(function (p) { return (p.status || "published") !== "draft"; });
+
+    const found = visible.find(function (p) { return p.slug === slug; });
     if (!found) { renderNotFound(); return; }
     renderPost(found);
-    renderSidebar(rows, slug);
+    renderSidebar(visible, slug);
   } catch (err) {
     console.error(err);
     renderNotFound("Failed to load this post.");
