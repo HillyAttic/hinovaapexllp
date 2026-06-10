@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "seed:cms": "node scripts/seed-cms.js"
   },
   "dependencies": {
     "firebase-admin": "^12.0.0"

@@ -3,10 +3,14 @@ rules_version = '2';
 // Firestore Security Rules for the HI-NOVA APEX LLP website.
 //
 // Model:
-//  - blog_posts        : public READ (website visitors); WRITE only by admin.
-//  - contacts          : public CREATE (contact form); READ/UPDATE only by admin.
+//  - blog_posts         : public READ; WRITE only by admin.
+//  - contacts           : public CREATE; READ/UPDATE only by admin.
 //  - newsletter /
-//    newsletter_subscribers : public CREATE (signup); READ only by admin.
+//    newsletter_subscribers : public CREATE; READ only by admin.
+//  - team_members       : public READ; WRITE only by admin.
+//  - services           : public READ; WRITE only by admin.
+//  - projects           : public READ; WRITE only by admin.
+//  - testimonials       : public READ; WRITE only by admin.
 //
 // "Admin" = a signed-in Firebase Auth user whose email is in the allow-list
 // below. Update ADMIN_EMAILS to match the account(s) you created in
@@ -38,20 +42,19 @@ service cloud.firestore {
           && request.resource.data.email.size() <= 254;
     }
 
-    // Blog posts: anyone can read; only admin can create/update/delete.
+    // Blog posts
     match /blog_posts/{docId} {
       allow read: if true;
       allow create, update, delete: if isAdmin();
     }
 
-    // Contact form submissions: anyone can create; only admin can read/update.
+    // Contact form submissions
     match /contacts/{docId} {
       allow create: if validContact();
-      allow read, update: if isAdmin();
-      allow delete: if isAdmin();
+      allow read, update, delete: if isAdmin();
     }
 
-    // Newsletter signups (both collection names supported).
+    // Newsletter signups (both collection names supported for backward compat).
     match /newsletter/{docId} {
       allow create: if validNewsletter();
       allow read, update, delete: if isAdmin();
@@ -59,6 +62,24 @@ service cloud.firestore {
     match /newsletter_subscribers/{docId} {
       allow create: if validNewsletter();
       allow read, update, delete: if isAdmin();
+    }
+
+    // ─── Phase E CMS collections (public read, admin write) ────────────
+    match /team_members/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /services/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /projects/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /testimonials/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
     }
 
     // Deny everything else by default.

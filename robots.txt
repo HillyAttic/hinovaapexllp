@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and utility pages
+Disallow: /admin.html
+Disallow: /admin
+Disallow: /utility-pages/
+
+# Sitemap
+Sitemap: https://www.hinovaapexllp.com/sitemap.xml

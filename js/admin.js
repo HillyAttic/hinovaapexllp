@@ -416,6 +416,11 @@ const PAGES = {
   newsletter: { title: "Newsletter", render: renderNewsletter }
 };
 
+// ─── Phase E bridge: expose PAGES + navigateTo on window so admin-cms.js
+// can register additional pages and trigger navigation. ────────────────
+window.PAGES = PAGES;
+window.navigateTo = navigateTo;
+
 function navigateTo(page, opts) {
   if (!PAGES[page]) page = "dashboard";
   state.currentPage = page;

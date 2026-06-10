@@ -3,6 +3,8 @@ export interface Env {
   FIREBASE_SERVICE_ACCOUNT: string;
   ADMIN_TOKEN: string;
   ALLOWED_ORIGINS: string;
+  RESEND_API_KEY?: string; // Optional — email notifications silently no-op if not set
+  NOTIFICATION_EMAILS?: string; // Optional — comma-separated; defaults to enquiry@ + contact@
 }
 
 export interface ContactFormData {
