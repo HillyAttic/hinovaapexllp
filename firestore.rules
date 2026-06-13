@@ -25,7 +25,8 @@ service cloud.firestore {
     function isAdmin() {
       return request.auth != null
           && request.auth.token.email in [
-               'admin@hinovaapex.com'
+               'admin@hinovaapex.com',
+               'admin@hinova.com'
              ];
     }
 

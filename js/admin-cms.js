@@ -2,11 +2,8 @@
 // Manages 4 CMS collections: team_members, services, projects, testimonials.
 // Loaded as a separate file from admin.html AFTER admin.js.
 //
-// All CMS routes go through the Cloudflare Worker (which uses the Firebase service
-// account for auth, so no client credentials are exposed). Admin operations
-// require a Bearer token — handled by the Worker. The admin panel is unlocked
-// once Firebase Auth login succeeds; the Worker trusts the request if the
-// Authorization header matches ADMIN_TOKEN (set via `wrangler secret put ADMIN_TOKEN`).
+// Uses Firebase client SDK directly (same pattern as admin.js) for all
+// Firestore operations. No Worker API dependency.
 //
 // Schema for each collection (free-form — anything you POST is stored):
 //
@@ -20,34 +17,17 @@
 //                body, rating, is_featured, order }
 
 // ─────────────────────────────────────────────────────────────────────────
-// CONFIG
+// FIREBASE IMPORTS
 // ─────────────────────────────────────────────────────────────────────────
-// Reuses API_BASE defined in api-config.js (loaded by admin.html)
-// and ADMIN_TOKEN read from a meta tag (set in admin.html).
+import { db } from "./firebase-config.js";
+import {
+  collection, getDocs, addDoc, doc, updateDoc, deleteDoc,
+  query, orderBy
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-function adminToken() {
-  const m = document.querySelector('meta[name="admin-token"]');
-  return m ? m.getAttribute('content') : '';
-}
-
-async function adminFetch(path, opts) {
-  opts = opts || {};
-  const headers = Object.assign(
-    { 'Content-Type': 'application/json' },
-    opts.headers || {}
-  );
-  const token = adminToken();
-  if (token) headers['Authorization'] = 'Bearer ' + token;
-  const res = await fetch(API_BASE + path, Object.assign({}, opts, { headers }));
-  let json = null;
-  try { json = await res.json(); } catch (e) { /* not JSON */ }
-  if (!res.ok) {
-    const err = (json && (json.error || json.message)) || ('HTTP ' + res.status);
-    throw new Error(err);
-  }
-  return json;
-}
-
+// ─────────────────────────────────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────────────────────────────────
 function esc(s) {
   return String(s == null ? '' : s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -63,15 +43,16 @@ function slugify(s) {
 
 function emptyState(title, body) {
   return '<div class="empty-state">' +
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>' +
-    '<h3 class="empty-state-title">' + esc(title) + '</h3>' +
-    '<p class="empty-state-text">' + esc(body) + '</p>' +
+    '<div class="empty-state-icon">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>' +
+    '</div>' +
+    '<div class="empty-state-title">' + esc(title) + '</div>' +
+    '<div class="empty-state-message">' + esc(body) + '</div>' +
   '</div>';
 }
 
 function toast(msg, type) {
   type = type || 'info';
-  // Use the existing toast from admin.js if available, else console.log
   if (window.showToast) { window.showToast(msg, type); return; }
   if (window.adminToast) { window.adminToast(msg, type); return; }
   console.log('[' + type + ']', msg);
@@ -80,13 +61,13 @@ function toast(msg, type) {
 // ─────────────────────────────────────────────────────────────────────────
 // COLLECTION DEFINITIONS
 // ─────────────────────────────────────────────────────────────────────────
-// Each entry defines: name, label, fields[] (form builder), listColumns[]
 const CMS_COLLECTIONS = {
   team_members: {
     name: 'team_members',
     label: 'Team Members',
     singular: 'Team Member',
     description: 'Manage your leadership and engineering team.',
+    viewUrl: 'our-team.html',
     fields: [
       { key: 'name', label: 'Full Name', type: 'text', required: true },
       { key: 'role', label: 'Job Title / Role', type: 'text', required: true, placeholder: 'e.g. Managing Director' },
@@ -102,10 +83,12 @@ const CMS_COLLECTIONS = {
       { key: 'is_active', label: 'Show on website', type: 'checkbox', default: true },
     ],
     listColumns: [
-      { key: 'name', label: 'Name' },
-      { key: 'role', label: 'Role' },
-      { key: 'department', label: 'Department' },
-      { key: 'is_active', label: 'Active', render: function (r) { return r.is_active ? '✓' : '—'; } },
+      { key: 'name', label: 'Name', render: function (r) {
+        var thumb = r.image ? '<img class="cms-thumb" src="' + esc(r.image) + '" alt="" onerror="this.style.display=\'none\'">' : '';
+        return '<div class="cms-row-with-thumb">' + thumb + '<div class="cms-row-text"><div class="cms-row-title">' + esc(r.name || '—') + '</div><div class="cms-row-subtitle">' + esc(r.role || '') + '</div></div></div>';
+      }},
+      { key: 'department', label: 'Department', render: function (r) { return r.department ? '<span class="cms-badge category">' + esc(r.department) + '</span>' : '—'; } },
+      { key: 'is_active', label: 'Status', render: function (r) { return r.is_active ? '<span class="cms-badge featured">Active</span>' : '<span class="cms-badge not-featured">Inactive</span>'; } },
     ],
   },
   services: {
@@ -113,6 +96,7 @@ const CMS_COLLECTIONS = {
     label: 'Services',
     singular: 'Service',
     description: 'Manage the service categories shown on the Services page.',
+    viewUrl: 'services.html',
     fields: [
       { key: 'title', label: 'Service Title', type: 'text', required: true },
       { key: 'slug', label: 'URL Slug', type: 'text', placeholder: 'auto-generated-from-title' },
@@ -125,9 +109,12 @@ const CMS_COLLECTIONS = {
       { key: 'is_featured', label: 'Featured', type: 'checkbox', default: false, hint: 'Featured services appear prominently on the home page.' },
     ],
     listColumns: [
-      { key: 'title', label: 'Title' },
-      { key: 'category', label: 'Category' },
-      { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '✓' : '—'; } },
+      { key: 'title', label: 'Service', render: function (r) {
+        var thumb = r.image ? '<img class="cms-thumb" src="' + esc(r.image) + '" alt="" onerror="this.style.display=\'none\'">' : '';
+        return '<div class="cms-row-with-thumb">' + thumb + '<div class="cms-row-text"><div class="cms-row-title">' + esc(r.title || '—') + '</div><div class="cms-row-subtitle">' + esc(r.summary || '') + '</div></div></div>';
+      }},
+      { key: 'category', label: 'Category', render: function (r) { return r.category ? '<span class="cms-badge category">' + esc(r.category) + '</span>' : '—'; } },
+      { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '<span class="cms-badge featured">Featured</span>' : '<span class="cms-badge not-featured">Standard</span>'; } },
     ],
   },
   projects: {
@@ -135,6 +122,7 @@ const CMS_COLLECTIONS = {
     label: 'Projects',
     singular: 'Project',
     description: 'Manage project case studies shown on the Projects page.',
+    viewUrl: 'projects.html',
     fields: [
       { key: 'title', label: 'Project Title', type: 'text', required: true },
       { key: 'slug', label: 'URL Slug', type: 'text', placeholder: 'auto-generated-from-title' },
@@ -150,11 +138,13 @@ const CMS_COLLECTIONS = {
       { key: 'is_featured', label: 'Featured', type: 'checkbox', default: false },
     ],
     listColumns: [
-      { key: 'title', label: 'Title' },
-      { key: 'category', label: 'Category' },
-      { key: 'year', label: 'Year' },
-      { key: 'client', label: 'Client' },
-      { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '✓' : '—'; } },
+      { key: 'title', label: 'Project', render: function (r) {
+        var thumb = r.image ? '<img class="cms-thumb" src="' + esc(r.image) + '" alt="" onerror="this.style.display=\'none\'">' : '';
+        return '<div class="cms-row-with-thumb">' + thumb + '<div class="cms-row-text"><div class="cms-row-title">' + esc(r.title || '—') + '</div><div class="cms-row-subtitle">' + esc(r.summary || '') + '</div></div></div>';
+      }},
+      { key: 'category', label: 'Category', render: function (r) { return r.category ? '<span class="cms-badge category">' + esc(r.category) + '</span>' : '—'; } },
+      { key: 'client', label: 'Client', render: function (r) { return r.client ? esc(r.client) : '<span style="color:var(--muted)">—</span>'; } },
+      { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '<span class="cms-badge featured">Featured</span>' : '<span class="cms-badge not-featured">Standard</span>'; } },
     ],
   },
   testimonials: {
@@ -162,6 +152,7 @@ const CMS_COLLECTIONS = {
     label: 'Testimonials',
     singular: 'Testimonial',
     description: 'Manage client testimonials shown on the home page.',
+    viewUrl: 'index.html',
     fields: [
       { key: 'author_name', label: 'Author Name', type: 'text', required: true },
       { key: 'author_role', label: 'Author Role / Title', type: 'text', placeholder: 'e.g. Plant Manager' },
@@ -173,10 +164,24 @@ const CMS_COLLECTIONS = {
       { key: 'is_featured', label: 'Show on home page', type: 'checkbox', default: true },
     ],
     listColumns: [
-      { key: 'author_name', label: 'Author' },
-      { key: 'author_company', label: 'Company' },
-      { key: 'rating', label: 'Rating' },
-      { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '✓' : '—'; } },
+      { key: 'author_name', label: 'Author', render: function (r) {
+        var thumb = r.author_image ? '<img class="cms-thumb" style="border-radius:50%" src="' + esc(r.author_image) + '" alt="" onerror="this.style.display=\'none\'">' : '';
+        return '<div class="cms-row-with-thumb">' + thumb + '<div class="cms-row-text"><div class="cms-row-title">' + esc(r.author_name || '—') + '</div><div class="cms-row-subtitle">' + esc(r.author_role || '') + '</div></div></div>';
+      }},
+      { key: 'author_company', label: 'Company', render: function (r) { return r.author_company ? esc(r.author_company) : '<span style="color:var(--muted)">—</span>'; } },
+      { key: 'rating', label: 'Rating', render: function (r) {
+        var rating = parseInt(r.rating) || 0;
+        var stars = '';
+        for (var i = 1; i <= 5; i++) {
+          if (i <= rating) {
+            stars += '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+          } else {
+            stars += '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:#d1d5db"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+          }
+        }
+        return '<div class="cms-stars">' + stars + '</div>';
+      }},
+      { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '<span class="cms-badge featured">Visible</span>' : '<span class="cms-badge not-featured">Hidden</span>'; } },
     ],
   },
 };
@@ -186,14 +191,19 @@ window.cmsState = window.cmsState || {};
 Object.keys(CMS_COLLECTIONS).forEach(function (k) { window.cmsState[k] = { items: [], editingId: null, loading: false, error: null }; });
 
 // ─────────────────────────────────────────────────────────────────────────
-// LOADERS (one per collection)
+// FIRESTORE CRUD (Firebase client SDK)
 // ─────────────────────────────────────────────────────────────────────────
 async function loadCmsCollection(name) {
   const state = window.cmsState[name];
-  state.loading = true; state.error = null;
+  state.loading = true;
+  state.error = null;
   try {
-    const res = await adminFetch('/api/admin/' + name);
-    state.items = (res && res.data) || [];
+    const q = query(collection(db, name), orderBy('order', 'asc'));
+    const snapshot = await getDocs(q);
+    state.items = snapshot.docs.map(function (d) {
+      return Object.assign({ _id: d.id }, d.data());
+    });
+    // Secondary sort: by name/title/author_name alphabetically for same order
     state.items.sort(function (a, b) {
       const ao = typeof a.order === 'number' ? a.order : 9999;
       const bo = typeof b.order === 'number' ? b.order : 9999;
@@ -206,6 +216,84 @@ async function loadCmsCollection(name) {
   } finally {
     state.loading = false;
   }
+}
+
+// Auto-seed a collection if it's empty (copies frontend data into Firestore)
+async function autoSeedCollection(name) {
+  if (name === 'services' && window.cmsState[name].items.length === 0) {
+    const seedData = [
+      { title: "Pressure Vessels & Heat Exchangers", slug: "pressure-vessels-heat-exchangers", category: "Pressure & Heat Transfer", summary: "ASME and IBR-compliant pressure vessels, shell & tube and plate heat exchangers, calandrias, and calciners engineered for demanding process conditions.", description: "ASME and IBR-compliant pressure vessels, shell & tube and plate heat exchangers, calandrias, and calciners engineered for demanding process conditions.", image: "img/manufacturing/service-pressure-vessel.jpg", features: [], is_featured: true, order: 1 },
+      { title: "Industrial Drying & Heating Systems", slug: "industrial-drying-heating-systems", category: "Drying & Heating", summary: "Rotary, paddle, sludge, spray, and drum dryers plus air pre-heaters and evaporation systems for efficient solid and thermal processing.", description: "Rotary, paddle, sludge, spray, and drum dryers plus air pre-heaters and evaporation systems for efficient solid and thermal processing.", image: "img/manufacturing/service-dryer.jpg", features: [], is_featured: true, order: 2 },
+      { title: "Reactors, Columns & Storage Tanks", slug: "reactors-columns-storage-tanks", category: "Reactors & Columns", summary: "Custom reactors, distillation columns, cladded vessels, and storage tanks fabricated in SS, duplex, and exotic alloys for chemical and pharma processes.", description: "Custom reactors, distillation columns, cladded vessels, and storage tanks fabricated in SS, duplex, and exotic alloys for chemical and pharma processes.", image: "img/manufacturing/service-reactor.jpg", features: [], is_featured: true, order: 3 },
+      { title: "Skid Packages & Process Piping", slug: "skid-packages-process-piping", category: "Modular Systems", summary: "Pre-engineered modular skids, process and pressure piping, sterile piping, and structural engineering for fast-track plant installations.", description: "Pre-engineered modular skids, process and pressure piping, sterile piping, and structural engineering for fast-track plant installations.", image: "img/manufacturing/service-skid.jpg", features: [], is_featured: false, order: 4 },
+      { title: "Turnkey Project Execution", slug: "turnkey-project-execution", category: "Turnkey Projects", summary: "End-to-end project delivery covering design, manufacturing, supply, erection, and commissioning for large-scale industrial installations.", description: "End-to-end project delivery covering design, manufacturing, supply, erection, and commissioning for large-scale industrial installations.", image: "img/manufacturing/service-heat-exchanger.jpg", features: [], is_featured: true, order: 5 },
+      { title: "Maintenance & Revamping", slug: "maintenance-revamping", category: "Maintenance", summary: "Annual maintenance contracts, plant shutdowns, relocations, and revamping services that keep your facility running at peak efficiency.", description: "Annual maintenance contracts, plant shutdowns, relocations, and revamping services that keep your facility running at peak efficiency.", image: "img/manufacturing/service-maintenance.jpg", features: [], is_featured: false, order: 6 }
+    ];
+    try {
+      for (var i = 0; i < seedData.length; i++) {
+        await addDoc(collection(db, 'services'), seedData[i]);
+      }
+      console.log('[seed] Auto-seeded 6 services into Firestore.');
+      await loadCmsCollection('services');
+    } catch (e) {
+      console.warn('[seed] Auto-seed services failed (you may need to log in as admin):', e.message);
+    }
+  }
+  if (name === 'projects' && window.cmsState[name].items.length === 0) {
+    var projects = [
+      { title: "Metal Production", slug: "metal-production", category: "Process Equipment", client: "", location: "", year: "", summary: "Complete process equipment installation for metal production facility.", description: "Design, fabrication, and installation of process equipment including pressure vessels, heat exchangers, and piping systems for a metal production facility.", image: "67512b0c631970a86b689e0a/6763e5627b847d57c22393c0_project-img-01.jpg", gallery: [], is_featured: true, order: 1 },
+      { title: "Manufacturing", slug: "manufacturing", category: "Heavy Fabrication", client: "", location: "", year: "", summary: "Heavy fabrication project for industrial manufacturing facility.", description: "Heavy fabrication and assembly of structural and process components for an industrial manufacturing facility.", image: "67512b0c631970a86b689e0a/6763e57182f8fe13c7d4bbd8_project-img-02.jpg", gallery: [], is_featured: true, order: 2 },
+      { title: "Energy Power Project", slug: "energy-power-project", category: "Thermal Systems", client: "", location: "", year: "", summary: "Thermal systems design and installation for power generation.", description: "Engineering and execution of thermal systems including boilers, heat exchangers, and piping for a power generation project.", image: "67512b0c631970a86b689e0a/6763e581b78254d8de5d2c74_project-img-03.jpg", gallery: [], is_featured: true, order: 3 },
+      { title: "Factory Remodeling", slug: "factory-remodeling", category: "Modular Skids", client: "", location: "", year: "", summary: "Modular skid packages for factory remodeling project.", description: "Design and supply of pre-engineered modular skid packages for a factory remodeling project.", image: "67512b0c631970a86b689e0a/6763e58f9cd0a3e0d991fbda_project-img-04.jpg", gallery: [], is_featured: false, order: 4 },
+      { title: "Warehouse Support", slug: "warehouse-support", category: "Project Execution", client: "", location: "", year: "", summary: "Structural and process support systems for warehouse facility.", description: "Complete project execution including structural engineering, process piping, and equipment installation for a warehouse support facility.", image: "67512b0c631970a86b689e0a/6760f71bd10487514f7e6d11_port-08.jpg", gallery: [], is_featured: false, order: 5 },
+      { title: "Finishing & Coating", slug: "finishing-coating", category: "Drying & Solid Processing", client: "", location: "", year: "", summary: "Drying and coating systems for finishing line.", description: "Engineering and supply of drying and coating equipment for an industrial finishing and coating line.", image: "67512b0c631970a86b689e0a/6763e5baf5e766a22f5b0b39_project-img-07.jpg", gallery: [], is_featured: false, order: 6 },
+      { title: "Chemical Refinery", slug: "chemical-refinery", category: "Process Equipment", client: "", location: "", year: "", summary: "Process equipment for chemical refinery operations.", description: "Design, fabrication, and installation of process equipment for a chemical refinery.", image: "67512b0c631970a86b689e0a/6763e5ae545d4034af000de4_project-img-06.jpg", gallery: [], is_featured: true, order: 7 },
+      { title: "Thermal Processing", slug: "thermal-processing", category: "Thermal Systems", client: "", location: "", year: "", summary: "Thermal processing systems for industrial applications.", description: "Engineering and execution of thermal processing systems including furnaces, ovens, and heat treatment equipment.", image: "67512b0c631970a86b689e0a/6763e59da0e4de8b4c4cfc9d_project-img-05.jpg", gallery: [], is_featured: false, order: 8 },
+      { title: "VA Tech Wabag -- Process Skids", slug: "va-tech-wabag-process-skids", category: "Oil & Gas / Desalination", client: "VA Tech Wabag", location: "", year: "", summary: "16 process skids with piping, valves & instruments, 20,000 inch-dia process piping, 8 storage tanks and 100 SS piping spools.", description: "Design, fabrication, and supply of 16 process skids with complete piping, valves, and instruments for a desalination project.", image: "67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001.jpg", gallery: [], is_featured: true, order: 9 },
+      { title: "Thermax -- 300 TPH Boiler Project", slug: "thermax-300-tph-boiler-project", category: "Power", client: "Thermax", location: "Mithapur", year: "", summary: "4 pressure sand filter vessels & 4 activated carbon filter vessels for the 300 TPH boiler & turbine generator project at Mithapur.", description: "Fabrication and supply of 4 pressure sand filter vessels and 4 activated carbon filter vessels for the 300 TPH boiler and turbine generator project at Mithapur.", image: "67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002.jpg", gallery: [], is_featured: true, order: 10 },
+      { title: "Olon API India -- SS316L Reactors", slug: "olon-api-india-ss316l-reactors", category: "Pharmaceutical", client: "Olon API India", location: "Mahad", year: "", summary: "2KL, 4KL & 6KL SS316L reactors with interconnecting site piping at Mahad.", description: "Design, fabrication, and installation of 2KL, 4KL, and 6KL SS316L reactors with interconnecting site piping for pharmaceutical manufacturing at Mahad.", image: "67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003.jpg", gallery: [], is_featured: true, order: 11 }
+    ];
+    try {
+      for (var i = 0; i < projects.length; i++) {
+        await addDoc(collection(db, 'projects'), projects[i]);
+      }
+      console.log('[seed] Auto-seeded 11 projects into Firestore.');
+      await loadCmsCollection('projects');
+    } catch (e) {
+      console.warn('[seed] Auto-seed projects failed:', e.message);
+    }
+  }
+  if (name === 'testimonials' && window.cmsState[name].items.length === 0) {
+    var testimonials = [
+      { author_name: "Rajesh Menon", author_role: "Plant Head, Chemicals", author_company: "", author_image: "67512b0c631970a86b689dc8/avatar-anonymous.svg", body: "HI-NOVA APEX delivered our paddle dryer system on schedule and to exact specification. Their engineering team understood our process requirements and the build quality was excellent.", rating: 5, is_featured: true, order: 1 },
+      { author_name: "Anita Deshpande", author_role: "Project Manager, Pharma", author_company: "", author_image: "67512b0c631970a86b689dc8/avatar-anonymous.svg", body: "We trusted HI-NOVA with SS316L reactors for a pharmaceutical project. The fabrication, documentation, and IBR compliance were handled professionally from start to commissioning.", rating: 5, is_featured: true, order: 2 },
+      { author_name: "Sanjay Kulkarni", author_role: "Engineering Lead, Refinery", author_company: "", author_image: "67512b0c631970a86b689dc8/avatar-anonymous.svg", body: "From heat exchangers to skid-mounted piping, HI-NOVA APEX has been a dependable partner for our refinery projects. Their turnkey execution saved us significant downtime.", rating: 5, is_featured: true, order: 3 }
+    ];
+    try {
+      for (var i = 0; i < testimonials.length; i++) {
+        await addDoc(collection(db, 'testimonials'), testimonials[i]);
+      }
+      console.log('[seed] Auto-seeded 3 testimonials into Firestore.');
+      await loadCmsCollection('testimonials');
+    } catch (e) {
+      console.warn('[seed] Auto-seed testimonials failed:', e.message);
+    }
+  }
+}
+
+async function saveCmsItem(collectionName, id, data) {
+  if (id) {
+    // Update existing
+    const docRef = doc(db, collectionName, id);
+    await updateDoc(docRef, data);
+  } else {
+    // Create new
+    await addDoc(collection(db, collectionName), data);
+  }
+}
+
+async function deleteCmsItem(collectionName, id) {
+  await deleteDoc(doc(db, collectionName, id));
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -264,7 +352,7 @@ function readFieldFromForm(field) {
 // ─────────────────────────────────────────────────────────────────────────
 // PAGE RENDERERS (list + editor)
 // ─────────────────────────────────────────────────────────────────────────
-function renderCmsListPage(collectionName) {
+function renderCmsListPage(collectionName, _retries) {
   const def = CMS_COLLECTIONS[collectionName];
   const state = window.cmsState[collectionName];
   const items = state.items;
@@ -278,6 +366,16 @@ function renderCmsListPage(collectionName) {
   if (state.loading && items.length === 0) {
     return '<div class="page-header"><h2 class="page-heading">' + esc(def.label) + '</h2></div>' +
       '<div class="card"><div class="card-body">Loading...</div></div>';
+  }
+
+  // Auto-seed if collection is empty
+  if (items.length === 0 && !_retries) {
+    autoSeedCollection(collectionName).then(function () {
+      var el = document.getElementById('admin-content');
+      if (el) el.innerHTML = renderCmsListPage(collectionName, true);
+    });
+    return '<div class="page-header"><h2 class="page-heading">' + esc(def.label) + '</h2></div>' +
+      '<div class="card"><div class="card-body">Seeding initial data from frontend...</div></div>';
   }
 
   let html = '<div class="page-header">' +
@@ -308,15 +406,23 @@ function renderCmsListPage(collectionName) {
     items.forEach(function (it) {
       html += '<tr>';
       def.listColumns.forEach(function (c) {
-        const val = c.render ? c.render(it) : (it[c.key] != null ? it[c.key] : '—');
-        const display = (typeof val === 'string' || typeof val === 'number') ? String(val) : '—';
-        html += '<td>' + esc(display) + '</td>';
+        if (c.render) {
+          // Custom render returns HTML — don't escape
+          html += '<td>' + c.render(it) + '</td>';
+        } else {
+          const val = it[c.key] != null ? it[c.key] : '—';
+          const display = (typeof val === 'string' || typeof val === 'number') ? String(val) : '—';
+          html += '<td>' + esc(display) + '</td>';
+        }
       });
-      html += '<td class="actions-col"><button class="btn-icon" data-edit-cms="' + collectionName + '" data-cms-id="' + esc(it._id) + '" title="Edit">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>' +
-      '</button> <button class="btn-icon btn-icon-danger" data-delete-cms="' + collectionName + '" data-cms-id="' + esc(it._id) + '" title="Delete">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>' +
-      '</button></td>';
+      html += '<td class="actions-col">' +
+        '<button class="btn btn-icon btn-sm" data-edit-cms="' + collectionName + '" data-cms-id="' + esc(it._id) + '" title="Edit">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>' +
+        '</button>' +
+        '<button class="btn btn-icon btn-sm btn-icon-danger" data-delete-cms="' + collectionName + '" data-cms-id="' + esc(it._id) + '" title="Delete">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>' +
+        '</button>' +
+      '</td>';
       html += '</tr>';
     });
     html += '</tbody></table></div></div>';
@@ -361,21 +467,13 @@ function renderCmsEditorPage(collectionName) {
 // ─────────────────────────────────────────────────────────────────────────
 // REGISTER PAGES into the admin PAGES object
 // ─────────────────────────────────────────────────────────────────────────
-// We need to hook into the existing admin's PAGES. Expose a registration
-// function that the page-include script calls after admin.js is loaded.
-
 window.CMS = {
   collections: CMS_COLLECTIONS,
   loadCollection: loadCmsCollection,
   renderList: renderCmsListPage,
   renderEditor: renderCmsEditorPage,
-  saveItem: async function (collectionName, id, data) {
-    if (id) return adminFetch('/api/admin/' + collectionName + '/' + id, { method: 'PUT', body: JSON.stringify(data) });
-    return adminFetch('/api/admin/' + collectionName, { method: 'POST', body: JSON.stringify(data) });
-  },
-  deleteItem: async function (collectionName, id) {
-    return adminFetch('/api/admin/' + collectionName + '/' + id, { method: 'DELETE' });
-  },
+  saveItem: saveCmsItem,
+  deleteItem: deleteCmsItem,
   // Hook into the existing PAGES dict from admin.js
   registerPages: function (PAGES) {
     if (!PAGES) return;
@@ -388,6 +486,11 @@ window.CMS = {
           await loadCmsCollection(name);
           const el = document.getElementById('admin-content');
           if (el) el.innerHTML = renderCmsListPage(name);
+          // Update View Site link to point to the correct public page
+          var viewSiteLink = document.querySelector('.btn-view-site');
+          if (viewSiteLink && CMS_COLLECTIONS[name].viewUrl) {
+            viewSiteLink.href = CMS_COLLECTIONS[name].viewUrl;
+          }
         },
       };
       PAGES[editName] = {
@@ -433,7 +536,6 @@ window.CMS = {
       return false;
     }
     if (!tryRegister()) {
-      // admin.js may not have exposed PAGES yet — retry on next tick
       let attempts = 0;
       const interval = setInterval(function () {
         attempts++;
