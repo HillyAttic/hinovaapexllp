@@ -81,6 +81,7 @@ const CMS_COLLECTIONS = {
       { key: 'bio', label: 'Short Bio / Profile', type: 'textarea', rows: 4, placeholder: 'Brief profile, expertise, achievements...' },
       { key: 'order', label: 'Display Order', type: 'number', placeholder: 'lower = first; leave blank for newest-first' },
       { key: 'is_active', label: 'Show on website', type: 'checkbox', default: true },
+      { key: 'is_featured', label: 'Show on homepage Core Team', type: 'checkbox', default: false, hint: 'Featured members appear in the Core Team section on the home page.' },
     ],
     listColumns: [
       { key: 'name', label: 'Name', render: function (r) {
@@ -89,6 +90,7 @@ const CMS_COLLECTIONS = {
       }},
       { key: 'department', label: 'Department', render: function (r) { return r.department ? '<span class="cms-badge category">' + esc(r.department) + '</span>' : '—'; } },
       { key: 'is_active', label: 'Status', render: function (r) { return r.is_active ? '<span class="cms-badge featured">Active</span>' : '<span class="cms-badge not-featured">Inactive</span>'; } },
+      { key: 'is_featured', label: 'Homepage', render: function (r) { return r.is_featured ? '<span class="cms-badge featured">Featured</span>' : '<span class="cms-badge not-featured">—</span>'; } },
     ],
   },
   services: {
@@ -243,6 +245,25 @@ async function loadCmsCollection(name) {
 
 // Auto-seed a collection if it's empty (copies frontend data into Firestore)
 async function autoSeedCollection(name) {
+  if (name === 'team_members' && window.cmsState[name].items.length === 0) {
+    var seedData = [
+      { name: "Rohidas R. Sharma", role: "Managing Director", slug: "rohidas-sharma", department: "Management", experience: "26+", qualification: "Mechanical Engineering", email: "rohidas@hinovaapex.com", linkedin: "", image: "67512b0c631970a86b689e0a/team-anonymous.svg", bio: "Leading HI-NOVA APEX with 26+ years of engineering and manufacturing expertise.", order: 1, is_active: true, is_featured: true },
+      { name: "Manoj A. P", role: "Director", slug: "manoj-ap", department: "Management", experience: "20+", qualification: "Business Administration", email: "manoj@hinovaapex.com", linkedin: "", image: "67512b0c631970a86b689e0a/team-anonymous.svg", bio: "Strategic leadership and business development for HI-NOVA APEX.", order: 2, is_active: true, is_featured: true },
+      { name: "Vishal Sakat", role: "Production Head", slug: "vishal-sakat", department: "Production", experience: "15+", qualification: "Mechanical Engineering", email: "vishal@hinovaapex.com", linkedin: "", image: "67512b0c631970a86b689e0a/team-anonymous.svg", bio: "Overseeing production operations and manufacturing excellence.", order: 3, is_active: true, is_featured: true },
+      { name: "Hardik Panchal", role: "Marketing Head", slug: "hardik-panchal", department: "Marketing", experience: "12+", qualification: "Marketing & Business", email: "hardik@hinovaapex.com", linkedin: "", image: "67512b0c631970a86b689e0a/team-anonymous.svg", bio: "Driving brand growth and market presence for HI-NOVA APEX.", order: 4, is_active: true, is_featured: true },
+      { name: "Arvind Kumar Sharma", role: "Director", slug: "arvind-kumar-sharma", department: "Management", experience: "18+", qualification: "Engineering", email: "arvind@hinovaapex.com", linkedin: "", image: "67512b0c631970a86b689e0a/team-anonymous.svg", bio: "Strategic direction and operational oversight.", order: 5, is_active: true, is_featured: false },
+      { name: "HI-NOVA Engineering Team", role: "Quality & Inspection", slug: "hi-nova-engineering-team", department: "Engineering", experience: "", qualification: "", email: "", linkedin: "", image: "67512b0c631970a86b689e0a/team-anonymous.svg", bio: "Our dedicated engineering team ensuring quality and precision in every project.", order: 6, is_active: true, is_featured: false }
+    ];
+    try {
+      for (var i = 0; i < seedData.length; i++) {
+        await addDoc(collection(db, 'team_members'), seedData[i]);
+      }
+      console.log('[seed] Auto-seeded 6 team members into Firestore.');
+      await loadCmsCollection('team_members');
+    } catch (e) {
+      console.warn('[seed] Auto-seed team_members failed:', e.message);
+    }
+  }
   if (name === 'services' && window.cmsState[name].items.length === 0) {
     const seedData = [
       { title: "Pressure Vessels & Heat Exchangers", slug: "pressure-vessels-heat-exchangers", category: "Pressure & Heat Transfer", summary: "ASME and IBR-compliant pressure vessels, shell & tube and plate heat exchangers, calandrias, and calciners engineered for demanding process conditions.", description: "ASME and IBR-compliant pressure vessels, shell & tube and plate heat exchangers, calandrias, and calciners engineered for demanding process conditions.", image: "img/manufacturing/service-pressure-vessel.jpg", features: [], is_featured: true, order: 1 },
