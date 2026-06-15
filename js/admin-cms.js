@@ -184,6 +184,29 @@ const CMS_COLLECTIONS = {
       { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '<span class="cms-badge featured">Visible</span>' : '<span class="cms-badge not-featured">Hidden</span>'; } },
     ],
   },
+  industries: {
+    name: 'industries',
+    label: 'Industries',
+    singular: 'Industry',
+    description: 'Manage the industry cards shown on the Industries page.',
+    viewUrl: 'industries.html',
+    fields: [
+      { key: 'title', label: 'Industry Name', type: 'text', required: true, placeholder: 'e.g. Oil & Gas' },
+      { key: 'description', label: 'Description', type: 'textarea', rows: 3, placeholder: 'Brief description of services for this industry' },
+      { key: 'image', label: 'Image URL', type: 'text', placeholder: 'https://... or /img/industries/...' },
+      { key: 'alt_text', label: 'Image Alt Text', type: 'text', placeholder: 'Descriptive alt text for accessibility' },
+      { key: 'order', label: 'Display Order', type: 'number', placeholder: 'lower = first' },
+      { key: 'is_active', label: 'Show on website', type: 'checkbox', default: true },
+    ],
+    listColumns: [
+      { key: 'title', label: 'Industry', render: function (r) {
+        var thumb = r.image ? '<img class="cms-thumb" src="' + esc(r.image) + '" alt="" onerror="this.style.display=\'none\'">' : '';
+        return '<div class="cms-row-with-thumb">' + thumb + '<div class="cms-row-text"><div class="cms-row-title">' + esc(r.title || '—') + '</div><div class="cms-row-subtitle">' + esc(r.description || '').substring(0, 80) + '...</div></div></div>';
+      }},
+      { key: 'order', label: 'Order', render: function (r) { return typeof r.order === 'number' ? '<span class="cms-badge category">' + String(r.order).padStart(2, '0') + '</span>' : '—'; } },
+      { key: 'is_active', label: 'Status', render: function (r) { return r.is_active !== false ? '<span class="cms-badge featured">Active</span>' : '<span class="cms-badge not-featured">Hidden</span>'; } },
+    ],
+  },
 };
 
 // Per-collection state (items cache)
@@ -277,6 +300,46 @@ async function autoSeedCollection(name) {
       await loadCmsCollection('testimonials');
     } catch (e) {
       console.warn('[seed] Auto-seed testimonials failed:', e.message);
+    }
+  }
+  if (name === 'industries' && window.cmsState[name].items.length === 0) {
+    var industries = [
+      { title: "Oil & Gas", description: "Pressure vessels, heat exchangers, and process piping for upstream, midstream, and downstream operations", image: "https://images.unsplash.com/photo-1578356058390-f58c575337a2?w=400&h=250&fit=crop&auto=format", alt_text: "Oil and Gas Industry", order: 1, is_active: true },
+      { title: "Petrochemical", description: "Reactors, columns, and thermal systems for petrochemical processing plants", image: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=400&h=250&fit=crop&auto=format", alt_text: "Petrochemical Plant", order: 2, is_active: true },
+      { title: "Chemical", description: "Custom-fabricated reactors, storage tanks, and skid packages for chemical manufacturing", image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=250&fit=crop&auto=format", alt_text: "Chemical Industry", order: 3, is_active: true },
+      { title: "Fertilizer", description: "Drying systems, evaporators, and heavy fabrication for fertilizer production lines", image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=250&fit=crop&auto=format", alt_text: "Fertilizer Industry", order: 4, is_active: true },
+      { title: "Refinery", description: "Heat exchangers, columns, and turnkey solutions for refinery operations", image: "https://images.unsplash.com/photo-1768564206500-5cddb1fea679?w=400&h=250&fit=crop&auto=format", alt_text: "Refinery Operations", order: 5, is_active: true },
+      { title: "Pharmaceutical", description: "SS316L reactors, sterile piping, and IBR-compliant equipment for pharma processes", image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=400&h=250&fit=crop&auto=format", alt_text: "Pharmaceutical Industry", order: 6, is_active: true },
+      { title: "Food Processing", description: "Hygienic process equipment, mixers, and storage systems for food-grade applications", image: "https://images.unsplash.com/photo-1661956660871-2cd646709c90?w=400&h=250&fit=crop&auto=format", alt_text: "Food Processing Industry", order: 7, is_active: true },
+      { title: "Dairy", description: "Pasteurization systems, storage tanks, and sanitary piping for dairy operations", image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=250&fit=crop&auto=format", alt_text: "Dairy Industry", order: 8, is_active: true },
+      { title: "Brewery", description: "Fermentation vessels, heat exchangers, and process skids for brewing facilities", image: "https://images.unsplash.com/photo-1651171052773-1f46b5894d6a?w=400&h=250&fit=crop&auto=format", alt_text: "Brewery Industry", order: 9, is_active: true },
+      { title: "Power Generation", description: "Boilers, heat recovery systems, and pressure parts for power plants", image: "https://images.unsplash.com/photo-1509390288171-ce2088f7d08e?w=400&h=250&fit=crop&auto=format", alt_text: "Power Generation", order: 10, is_active: true },
+      { title: "Desalination", description: "Thermal desalination equipment, evaporators, and heat transfer systems", image: "https://images.unsplash.com/photo-1473081556163-2a17de81fc97?w=400&h=250&fit=crop&auto=format", alt_text: "Desalination Plant", order: 11, is_active: true },
+      { title: "Distillery & Ethanol", description: "Fermentation tanks, distillation columns, and drying systems for ethanol plants", image: "https://images.unsplash.com/photo-1534655882117-f9eff36a1574?w=400&h=250&fit=crop&auto=format", alt_text: "Distillery and Ethanol", order: 12, is_active: true },
+      { title: "Marine & Offshore", description: "Corrosion-resistant process equipment and heavy fabrication for marine environments", image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=400&h=250&fit=crop&auto=format", alt_text: "Marine and Offshore", order: 13, is_active: true },
+      { title: "Defence", description: "Precision-engineered equipment and fabrication meeting defence-grade specifications", image: "https://images.unsplash.com/photo-1508530786855-dfea35260b8d?w=400&h=250&fit=crop&auto=format", alt_text: "Defence Industry", order: 14, is_active: true },
+      { title: "Renewable Energy", description: "Process equipment for solar thermal, biomass, and green energy applications", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=250&fit=crop&auto=format", alt_text: "Renewable Energy", order: 15, is_active: true },
+      { title: "Hydrogen & Green Fuels", description: "Electrolyzer skids, reformers, and storage systems for hydrogen production", image: "https://images.unsplash.com/photo-1548337138-e87d889cc369?w=400&h=250&fit=crop&auto=format", alt_text: "Hydrogen and Green Fuels", order: 16, is_active: true },
+      { title: "Edible Oil", description: "Refining equipment, heat exchangers, and storage tanks for edible oil processing", image: "https://images.unsplash.com/photo-1552592074-ea7a91b851b3?w=400&h=250&fit=crop&auto=format", alt_text: "Edible Oil Industry", order: 17, is_active: true },
+      { title: "Agriculture", description: "Drying systems, storage silos, and process equipment for agricultural processing", image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=250&fit=crop&auto=format", alt_text: "Agriculture Industry", order: 18, is_active: true },
+      { title: "Steel & Power Generation", description: "Heavy fabrication, heat treatment furnaces, and structural components for steel plants", image: "https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=400&h=250&fit=crop&auto=format", alt_text: "Steel and Power Generation", order: 19, is_active: true },
+      { title: "Pulp & Paper", description: "Digesters, dryers, and process vessels for pulp and paper manufacturing", image: "https://images.unsplash.com/photo-1682147382418-ddf8c3e1310e?w=400&h=250&fit=crop&auto=format", alt_text: "Pulp and Paper Industry", order: 20, is_active: true },
+      { title: "Paint & Coatings", description: "Mixing vessels, reactors, and storage systems for paint and coatings production", image: "https://images.unsplash.com/photo-1456086272160-b28b0645b729?w=400&h=250&fit=crop&auto=format", alt_text: "Paint and Coatings", order: 21, is_active: true },
+      { title: "Polymers & Resins", description: "Reactors, extrusion equipment, and thermal systems for polymer processing", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=250&fit=crop&auto=format", alt_text: "Polymers and Resins", order: 22, is_active: true },
+      { title: "Sugar", description: "Evaporators, crystallizers, and heavy fabrication for sugar mills", image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400&h=250&fit=crop&auto=format", alt_text: "Sugar Industry", order: 23, is_active: true },
+      { title: "Cement", description: "Heat exchangers, kiln components, and process equipment for cement plants", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop&auto=format", alt_text: "Cement Industry", order: 24, is_active: true },
+      { title: "Textile", description: "Dyeing vessels, drying systems, and process piping for textile manufacturing", image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400&h=250&fit=crop&auto=format", alt_text: "Textile Industry", order: 25, is_active: true },
+      { title: "ETP, STP & Wastewater Treatment", description: "Treatment tanks, filtration systems, and process equipment for water treatment", image: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=400&h=250&fit=crop&auto=format", alt_text: "Wastewater Treatment", order: 26, is_active: true },
+      { title: "Mining", description: "Heavy-duty process equipment, crushers, and structural fabrication for mining operations", image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=400&h=250&fit=crop&auto=format", alt_text: "Mining Industry", order: 27, is_active: true }
+    ];
+    try {
+      for (var i = 0; i < industries.length; i++) {
+        await addDoc(collection(db, 'industries'), industries[i]);
+      }
+      console.log('[seed] Auto-seeded 27 industries into Firestore.');
+      await loadCmsCollection('industries');
+    } catch (e) {
+      console.warn('[seed] Auto-seed industries failed:', e.message);
     }
   }
 }

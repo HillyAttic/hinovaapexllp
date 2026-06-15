@@ -17,7 +17,7 @@ function jsonResponse(data: any, status: number, headers?: Record<string, string
 }
 
 // Public CMS collections (no auth needed, read-only)
-const PUBLIC_CONTENT_COLLECTIONS = ['team_members', 'services', 'projects', 'testimonials'];
+const PUBLIC_CONTENT_COLLECTIONS = ['team_members', 'services', 'projects', 'testimonials', 'industries'];
 
 // Admin CMS collections (Bearer token required)
 const ADMIN_CONTENT_COLLECTIONS = {
@@ -25,6 +25,7 @@ const ADMIN_CONTENT_COLLECTIONS = {
   services: { requireFields: ['title'] },
   projects: { requireFields: ['title'] },
   testimonials: { requireFields: ['author_name', 'body'] },
+  industries: { requireFields: ['title'] },
 };
 
 export default {
