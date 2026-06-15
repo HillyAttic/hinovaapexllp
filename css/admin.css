@@ -178,20 +178,17 @@ button {
 }
 
 .login-logo {
-  width: 64px;
-  height: 64px;
+  width: 180px;
+  height: 60px;
   margin: 0 auto var(--spacing-md);
-  background: var(--brand-light);
-  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
 }
 
 .login-logo img {
-  width: 100%;
   height: 100%;
+  width: auto;
   object-fit: contain;
 }
 
@@ -293,20 +290,25 @@ button {
 }
 
 .sidebar-logo {
-  width: 36px;
-  height: 36px;
+  width: 140px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--white);
   border-radius: var(--radius-sm);
-  padding: 6px;
+  padding: 6px 10px;
   flex-shrink: 0;
 }
 
+.sidebar-logo a {
+  display: flex;
+  align-items: center;
+}
+
 .sidebar-logo img {
-  width: 100%;
   height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 
