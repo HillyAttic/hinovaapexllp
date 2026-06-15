@@ -1050,10 +1050,6 @@ Uri: https://induztry.webflow.io/blog
 File Name: C:\Downloaded Web Sites\induztry.webflow.io\blog.html
 Content Type: text/html
 
-Uri: https://induztry.webflow.io/blog-02
-File Name: C:\Downloaded Web Sites\induztry.webflow.io\blog-02.html
-Content Type: text/html
-
 Uri: https://induztry.webflow.io/category/management
 File Name: C:\Downloaded Web Sites\induztry.webflow.io\category\management.html
 Content Type: text/html

@@ -732,6 +732,10 @@ function renderEditor() {
               '<div class="cover-placeholder-hint">PNG, JPG, WebP up to 5MB</div>' +
             '</div>' +
           '</div>' +
+          '<div style="margin-top:8px;display:flex;gap:8px;align-items:center">' +
+            '<input type="text" id="cover-url" class="form-input" placeholder="Or paste an image URL" style="flex:1">' +
+            '<button type="button" id="cover-url-btn" class="btn btn-secondary btn-sm" style="white-space:nowrap">Use URL</button>' +
+          '</div>' +
         '</div>' +
 
         '<div class="form-group">' +
@@ -908,6 +912,11 @@ function renderEditor() {
 }
 
 function setupCoverUpload(initial) {
+  // Guard against corrupted values like "[object Object]" that were stored
+  // when the JSON-LD image object was saved as a string.
+  if (initial && !/^https?:|^\/|^(data:)/i.test(initial)) {
+    initial = "";
+  }
   const drop = $("cover-drop");
   const fileInput = $("cover-file");
   const preview = $("cover-preview");
@@ -970,6 +979,26 @@ function setupCoverUpload(initial) {
       toast("Upload failed: " + (err.message || err), "error");
     });
   }
+
+  // URL input — paste an image URL and click "Use URL" or press Enter
+  var urlInput = $("cover-url");
+  var urlBtn = $("cover-url-btn");
+  function applyCoverUrl() {
+    var url = (urlInput.value || "").trim();
+    if (!url) { toast("Please enter an image URL", "warning"); return; }
+    if (!/^https?:|^\/|^(data:)/i.test(url)) {
+      toast("Invalid image URL", "warning");
+      return;
+    }
+    showPreview(url);
+    urlInput.value = "";
+    toast("Cover image set from URL", "success");
+  }
+  if (urlBtn) urlBtn.addEventListener("click", applyCoverUrl);
+  if (urlInput) urlInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); applyCoverUrl(); }
+  });
+  // No pre-fill needed — when there's an initial URL, showPreview() already displays it.
 }
 
 function renderTagsInput() {
@@ -1146,6 +1175,17 @@ function collectEditorData() {
   const author_image = ($("ed-author-image").value || "").trim();
   const author_description = ($("ed-author-desc").value || "").trim();
   const content_html = state.editor.quill ? state.editor.quill.root.innerHTML : "";
+
+  // If the cover URL input has a valid URL that hasn't been applied yet
+  // (user pasted a URL but forgot to click "Use URL"), apply it now.
+  var coverUrlInput = $("cover-url");
+  if (!state.editor.coverImage && coverUrlInput && coverUrlInput.value.trim()) {
+    var pendingUrl = coverUrlInput.value.trim();
+    if (/^https?:|^\/|^(data:)/i.test(pendingUrl)) {
+      state.editor.coverImage = pendingUrl;
+      coverUrlInput.value = "";
+    }
+  }
   const cover_image = state.editor.coverImage || "";
 
   if (!title) { toast("Title is required", "warning"); $("ed-title").focus(); return null; }

@@ -195,7 +195,6 @@ Progress: ░░░░░░░░░░░░░░░░░░░░ 0%
 - [ ] pricing-plan.html
 - [ ] faq-page.html
 - [ ] blog.html
-- [ ] blog-02.html
 - [ ] homepage-2.html
 - [ ] homepage-3.html
 - [ ] Individual blog posts (post/*.html)

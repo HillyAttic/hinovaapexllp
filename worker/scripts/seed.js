@@ -106,7 +106,9 @@ async function seed() {
       author_email: jsonLd.author?.email || '',
       author_image: jsonLd.author?.image || '',
       author_description: jsonLd.author?.description || '',
-      cover_image: jsonLd.image || '',
+      cover_image: (typeof jsonLd.image === 'object' && jsonLd.image?.url)
+        ? jsonLd.image.url
+        : (typeof jsonLd.image === 'string' ? jsonLd.image : ''),
       content_html: contentHtml,
       date_published: jsonLd.datePublished || new Date().toISOString(),
       date_modified: jsonLd.dateModified || new Date().toISOString(),
