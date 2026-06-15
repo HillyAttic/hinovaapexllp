@@ -1,15 +1,14 @@
 // HI-NOVA APEX Public Loader — Industries
 // Replaces the hardcoded industry cards in industries.html with live data from
-// the CMS (GET /api/content/industries).
+// Firestore (via Firebase client SDK).
 //
-// Usage: include this script at the end of the body in industries.html.
+// Usage: include this script at the end of the body in industries.html, after
+// the Firebase SDK scripts and firebase-config.js.
 // It will:
-//   1. Fetch all industries (sorted by `order`)
-//   2. Find the .industries-grid element
-//   3. Replace its inner content with fresh industry card HTML
-//   4. If CMS is unreachable, leave the static HTML in place (graceful fallback)
-//
-// To disable: remove the <script> tag — the static template renders as-is.
+//   1. Read all industries from Firestore `industries` collection
+//   2. Filter active items and sort by `order`
+//   3. Find the .industries-grid element and replace its inner content
+//   4. If Firestore is unreachable, leave the static HTML in place (graceful fallback)
 
 (function () {
   function esc(s) {
@@ -38,17 +37,41 @@
     var grid = document.querySelector('.industries-grid');
     if (!grid) return;
     try {
-      var apiBase = (document.querySelector('meta[name="api-base"]') || {}).content || '';
-      var res = await fetch(apiBase + '/api/content/industries', { headers: { 'Accept': 'application/json' } });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      var json = await res.json();
-      var items = (json && json.data) || [];
-      if (!Array.isArray(items) || items.length === 0) return;
-      // Filter active items and sort by order
-      var active = items
-        .filter(function (item) { return item.is_active !== false; })
-        .sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+      // Use Firebase client SDK directly (same as admin panel)
+      var firebaseConfig = {
+        apiKey: "AIzaSyDD3FYDDbJ6COQbB-y1uj88BUwnGwFTjy0",
+        authDomain: "hinovaapex.firebaseapp.com",
+        projectId: "hinovaapex",
+        storageBucket: "hinovaapex.firebasestorage.app",
+        messagingSenderId: "63355629880",
+        appId: "1:63355629880:web:9ffbf16f77ca232cb211cd",
+        measurementId: "G-JJ886Q8NTR"
+      };
+
+      // Dynamic import of Firebase SDK
+      var appModule = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
+      var firestoreModule = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+
+      var app = appModule.getApps().length === 0
+        ? appModule.initializeApp(firebaseConfig)
+        : appModule.getApp();
+      var db = firestoreModule.getFirestore(app);
+
+      var snapshot = await firestoreModule.getDocs(
+        firestoreModule.query(
+          firestoreModule.collection(db, 'industries'),
+          firestoreModule.orderBy('order', 'asc')
+        )
+      );
+
+      var items = [];
+      snapshot.forEach(function (doc) { items.push(doc.data()); });
+      if (items.length === 0) return;
+
+      // Filter active items
+      var active = items.filter(function (item) { return item.is_active !== false; });
       if (active.length === 0) return;
+
       grid.innerHTML = active.map(function (item, i) { return renderCard(item, i); }).join('');
     } catch (e) {
       console.warn('[industries-loader] Could not load CMS data, keeping static content:', e.message);
