@@ -19,11 +19,14 @@
 // ─────────────────────────────────────────────────────────────────────────
 // FIREBASE IMPORTS
 // ─────────────────────────────────────────────────────────────────────────
-import { db } from "./firebase-config.js";
+import { db, storage } from "./firebase-config.js";
 import {
   collection, getDocs, addDoc, doc, updateDoc, deleteDoc,
   query, orderBy
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  ref as storageRef, uploadBytesResumable, getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 // ─────────────────────────────────────────────────────────────────────────
 // HELPERS
@@ -32,6 +35,69 @@ function esc(s) {
   return String(s == null ? '' : s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// IMAGE UPLOAD
+// ─────────────────────────────────────────────────────────────────────────
+async function uploadImageFile(file, pathPrefix, onProgress) {
+  return new Promise(function (resolve, reject) {
+    if (!file) return reject(new Error("No file"));
+    if (!file.type.startsWith("image/")) return reject(new Error("Not an image"));
+    if (file.size > 5 * 1024 * 1024) return reject(new Error("File too large (max 5MB)"));
+
+    var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+    var path = pathPrefix + "/" + Date.now() + "_" + safeName;
+    var ref = storageRef(storage, path);
+    var task = uploadBytesResumable(ref, file, { contentType: file.type });
+    task.on("state_changed",
+      function (snap) {
+        if (onProgress) {
+          var pct = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+          onProgress(pct);
+        }
+      },
+      function (err) { reject(err); },
+      function () { getDownloadURL(task.snapshot.ref).then(resolve).catch(reject); }
+    );
+  });
+}
+
+function handleImageUpload(fieldKey, pathPrefix) {
+  var input = document.getElementById('cms-field-upload-' + fieldKey);
+  var progressEl = document.getElementById('cms-field-progress-' + fieldKey);
+  var textInput = document.getElementById('cms-field-' + fieldKey);
+
+  if (!input || !textInput) return;
+
+  input.addEventListener('change', function (e) {
+    var file = e.target.files[0];
+    if (!file) return;
+
+    if (progressEl) {
+      progressEl.style.display = 'block';
+      progressEl.textContent = 'Uploading... 0%';
+    }
+
+    uploadImageFile(file, pathPrefix, function (pct) {
+      if (progressEl) {
+        progressEl.textContent = 'Uploading... ' + pct + '%';
+      }
+    }).then(function (url) {
+      textInput.value = url;
+      if (progressEl) {
+        progressEl.textContent = 'Upload complete!';
+        setTimeout(function () { progressEl.style.display = 'none'; }, 2000);
+      }
+      toast("Image uploaded successfully", "success");
+    }).catch(function (err) {
+      if (progressEl) {
+        progressEl.textContent = 'Upload failed: ' + err.message;
+        progressEl.style.color = 'var(--danger)';
+      }
+      toast("Image upload failed: " + err.message, "error");
+    });
+  });
 }
 
 function slugify(s) {
@@ -125,6 +191,7 @@ const CMS_COLLECTIONS = {
     singular: 'Project',
     description: 'Manage project case studies shown on the Projects page.',
     viewUrl: 'projects.html',
+    detailViewUrl: function(item) { return 'project/' + (item.slug || '') + '.html'; },
     fields: [
       { key: 'title', label: 'Project Title', type: 'text', required: true },
       { key: 'slug', label: 'URL Slug', type: 'text', placeholder: 'auto-generated-from-title' },
@@ -138,6 +205,14 @@ const CMS_COLLECTIONS = {
       { key: 'gallery', label: 'Gallery Image URLs (one per line)', type: 'textarea', rows: 4, transform: function (s) { return String(s || '').split('\n').map(function (x) { return x.trim(); }).filter(Boolean); } },
       { key: 'order', label: 'Display Order', type: 'number' },
       { key: 'is_featured', label: 'Featured', type: 'checkbox', default: false },
+      { key: 'hero_image', label: 'Hero Image URL (Detail Page)', type: 'text', hint: 'Large image shown at the top of the project detail page' },
+      { key: 'client_name', label: 'Client Name (Detail Page)', type: 'text', hint: 'Client name shown in metadata section' },
+      { key: 'client_category', label: 'Category (Detail Page)', type: 'text', hint: 'Category shown in metadata section' },
+      { key: 'date', label: 'Date (Detail Page)', type: 'text', placeholder: 'e.g. December 17, 2024' },
+      { key: 'website', label: 'Website (Detail Page)', type: 'text', placeholder: 'e.g. www.example.com' },
+      { key: 'content', label: 'Page Content (HTML)', type: 'textarea', rows: 15, hint: 'Full HTML content for the detail page including headings, paragraphs, lists, and blockquotes' },
+      { key: 'client_review', label: 'Client Review Quote', type: 'textarea', rows: 4, hint: 'Quote from the client about the project' },
+      { key: 'client_review_author', label: 'Client Review Author', type: 'text', hint: 'Name of the person giving the review' },
     ],
     listColumns: [
       { key: 'title', label: 'Project', render: function (r) {
@@ -147,6 +222,12 @@ const CMS_COLLECTIONS = {
       { key: 'category', label: 'Category', render: function (r) { return r.category ? '<span class="cms-badge category">' + esc(r.category) + '</span>' : '—'; } },
       { key: 'client', label: 'Client', render: function (r) { return r.client ? esc(r.client) : '<span style="color:var(--muted)">—</span>'; } },
       { key: 'is_featured', label: 'Featured', render: function (r) { return r.is_featured ? '<span class="cms-badge featured">Featured</span>' : '<span class="cms-badge not-featured">Standard</span>'; } },
+      { key: 'detail_page', label: 'Detail Page', render: function (r) {
+        if (r.slug) {
+          return '<a href="project/' + esc(r.slug) + '.html" target="_blank" class="btn btn-sm btn-secondary" style="text-decoration:none;">View Detail</a>';
+        }
+        return '<span style="color:var(--muted)">No slug</span>';
+      }},
     ],
   },
   testimonials: {
@@ -285,17 +366,17 @@ async function autoSeedCollection(name) {
   }
   if (name === 'projects' && window.cmsState[name].items.length === 0) {
     var projects = [
-      { title: "Metal Production", slug: "metal-production", category: "Process Equipment", client: "", location: "", year: "", summary: "Complete process equipment installation for metal production facility.", description: "Design, fabrication, and installation of process equipment including pressure vessels, heat exchangers, and piping systems for a metal production facility.", image: "67512b0c631970a86b689e0a/6763e5627b847d57c22393c0_project-img-01.jpg", gallery: [], is_featured: true, order: 1 },
-      { title: "Manufacturing", slug: "manufacturing", category: "Heavy Fabrication", client: "", location: "", year: "", summary: "Heavy fabrication project for industrial manufacturing facility.", description: "Heavy fabrication and assembly of structural and process components for an industrial manufacturing facility.", image: "67512b0c631970a86b689e0a/6763e57182f8fe13c7d4bbd8_project-img-02.jpg", gallery: [], is_featured: true, order: 2 },
-      { title: "Energy Power Project", slug: "energy-power-project", category: "Thermal Systems", client: "", location: "", year: "", summary: "Thermal systems design and installation for power generation.", description: "Engineering and execution of thermal systems including boilers, heat exchangers, and piping for a power generation project.", image: "67512b0c631970a86b689e0a/6763e581b78254d8de5d2c74_project-img-03.jpg", gallery: [], is_featured: true, order: 3 },
-      { title: "Factory Remodeling", slug: "factory-remodeling", category: "Modular Skids", client: "", location: "", year: "", summary: "Modular skid packages for factory remodeling project.", description: "Design and supply of pre-engineered modular skid packages for a factory remodeling project.", image: "67512b0c631970a86b689e0a/6763e58f9cd0a3e0d991fbda_project-img-04.jpg", gallery: [], is_featured: false, order: 4 },
-      { title: "Warehouse Support", slug: "warehouse-support", category: "Project Execution", client: "", location: "", year: "", summary: "Structural and process support systems for warehouse facility.", description: "Complete project execution including structural engineering, process piping, and equipment installation for a warehouse support facility.", image: "67512b0c631970a86b689e0a/6760f71bd10487514f7e6d11_port-08.jpg", gallery: [], is_featured: false, order: 5 },
-      { title: "Finishing & Coating", slug: "finishing-coating", category: "Drying & Solid Processing", client: "", location: "", year: "", summary: "Drying and coating systems for finishing line.", description: "Engineering and supply of drying and coating equipment for an industrial finishing and coating line.", image: "67512b0c631970a86b689e0a/6763e5baf5e766a22f5b0b39_project-img-07.jpg", gallery: [], is_featured: false, order: 6 },
-      { title: "Chemical Refinery", slug: "chemical-refinery", category: "Process Equipment", client: "", location: "", year: "", summary: "Process equipment for chemical refinery operations.", description: "Design, fabrication, and installation of process equipment for a chemical refinery.", image: "67512b0c631970a86b689e0a/6763e5ae545d4034af000de4_project-img-06.jpg", gallery: [], is_featured: true, order: 7 },
-      { title: "Thermal Processing", slug: "thermal-processing", category: "Thermal Systems", client: "", location: "", year: "", summary: "Thermal processing systems for industrial applications.", description: "Engineering and execution of thermal processing systems including furnaces, ovens, and heat treatment equipment.", image: "67512b0c631970a86b689e0a/6763e59da0e4de8b4c4cfc9d_project-img-05.jpg", gallery: [], is_featured: false, order: 8 },
-      { title: "VA Tech Wabag -- Process Skids", slug: "va-tech-wabag-process-skids", category: "Oil & Gas / Desalination", client: "VA Tech Wabag", location: "", year: "", summary: "16 process skids with piping, valves & instruments, 20,000 inch-dia process piping, 8 storage tanks and 100 SS piping spools.", description: "Design, fabrication, and supply of 16 process skids with complete piping, valves, and instruments for a desalination project.", image: "67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001.jpg", gallery: [], is_featured: true, order: 9 },
-      { title: "Thermax -- 300 TPH Boiler Project", slug: "thermax-300-tph-boiler-project", category: "Power", client: "Thermax", location: "Mithapur", year: "", summary: "4 pressure sand filter vessels & 4 activated carbon filter vessels for the 300 TPH boiler & turbine generator project at Mithapur.", description: "Fabrication and supply of 4 pressure sand filter vessels and 4 activated carbon filter vessels for the 300 TPH boiler and turbine generator project at Mithapur.", image: "67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002.jpg", gallery: [], is_featured: true, order: 10 },
-      { title: "Olon API India -- SS316L Reactors", slug: "olon-api-india-ss316l-reactors", category: "Pharmaceutical", client: "Olon API India", location: "Mahad", year: "", summary: "2KL, 4KL & 6KL SS316L reactors with interconnecting site piping at Mahad.", description: "Design, fabrication, and installation of 2KL, 4KL, and 6KL SS316L reactors with interconnecting site piping for pharmaceutical manufacturing at Mahad.", image: "67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003.jpg", gallery: [], is_featured: true, order: 11 }
+      { title: "Metal Production", slug: "metal-production", category: "Process Equipment", client: "", location: "", year: "", summary: "Complete process equipment installation for metal production facility.", description: "Design, fabrication, and installation of process equipment including pressure vessels, heat exchangers, and piping systems for a metal production facility.", image: "67512b0c631970a86b689e0a/6763e5627b847d57c22393c0_project-img-01.jpg", gallery: [], is_featured: true, order: 1, hero_image: "67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001.jpg", client_name: "Michael Daniel", client_category: "Production", date: "December 17, 2024", website: "www.pbminfotech.com", content: "<h5>Best Innovations in Metallurgy</h5><p>The capstone of the MEng degree is group industry project in a manufacturing company. During the Spring semester student start meeting with with the company and their thesis advisor to identity the problem or opportunity to pursue, the <a href='#'><strong>project scope and expected deliverables.</strong></a> These meeting are usually weekly in-person or through video call. Then a the summer, starting in mid-May and going through mid-August students work on the company project full time. These projects — done in groups of three students per site — form the basis of the thesis portion of the degree. Student work on-site under the supervision of an MIT faculty member typically solving near-term problems for their company.</p><p>This project sought to Identify root causes of flux residue presence underneath the company can continue the to <a href='#'><strong>commercialization of this novel process.</strong></a> critical high performance circuit components It combined board architectural design-related issues and investigates alternative washing methods. It then recommended a new washing strategy and equipment to greatly reduce board failures.</p><h5>Features of Our Project</h5><p>This team was asked to increase the capacity of a complex assembly line to responded to high demand without significant capital investment. \"Through the use of value stream mapping, they eliminated non value-adding steps, reduced WIP and added an analytical system for decisions making working with a local microfluidics start up company, this team looked at a number of issues related to scale up to mass production. \"It identified opportunities for quality control improvement, and also studied certain critical processes.</p><ul role='list'><li>Boost the economy Industries stimulate economic growth by creating wealth and jobs.</li><li>Increase exports Industries like manufacturing and technology contribute to a country's export earnings.</li><li>Reduce unemployment Industrial development can help reduce unemployment and poverty.</li><li>Modernize agriculture: Industries provide machinery, chemicals, and other items to modernize agricultural activities</li></ul><h5>Our Client Review</h5><p>The final assembly of ion implantation equipment must take place in a clean room. To reduce the time and expense of this assembly, the team developed a novel alignment system that can obviate in a plant assembly and allowed the equipment supplier to assemble on the customer site. This greatly reduces both the time and assembly and save considerable clean room capacity.</p><blockquote>\"The way to wealth is as plain as the way to market. It depends chiefly on two words, industry and frugality; that is, waste neither time nor money, but make the best use of both. Without industry and frugality nothing will do; with them, everything.\"</blockquote>", client_review: "", client_review_author: "" },
+      { title: "Manufacturing", slug: "manufacturing", category: "Heavy Fabrication", client: "", location: "", year: "", summary: "Heavy fabrication project for industrial manufacturing facility.", description: "Heavy fabrication and assembly of structural and process components for an industrial manufacturing facility.", image: "67512b0c631970a86b689e0a/6763e57182f8fe13c7d4bbd8_project-img-02.jpg", gallery: [], is_featured: true, order: 2, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Energy Power Project", slug: "energy-power-project", category: "Thermal Systems", client: "", location: "", year: "", summary: "Thermal systems design and installation for power generation.", description: "Engineering and execution of thermal systems including boilers, heat exchangers, and piping for a power generation project.", image: "67512b0c631970a86b689e0a/6763e581b78254d8de5d2c74_project-img-03.jpg", gallery: [], is_featured: true, order: 3, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Factory Remodeling", slug: "factory-remodeling", category: "Modular Skids", client: "", location: "", year: "", summary: "Modular skid packages for factory remodeling project.", description: "Design and supply of pre-engineered modular skid packages for a factory remodeling project.", image: "67512b0c631970a86b689e0a/6763e58f9cd0a3e0d991fbda_project-img-04.jpg", gallery: [], is_featured: false, order: 4, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Warehouse Support", slug: "warehouse-support", category: "Project Execution", client: "", location: "", year: "", summary: "Structural and process support systems for warehouse facility.", description: "Complete project execution including structural engineering, process piping, and equipment installation for a warehouse support facility.", image: "67512b0c631970a86b689e0a/6760f71bd10487514f7e6d11_port-08.jpg", gallery: [], is_featured: false, order: 5, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Finishing & Coating", slug: "finishing-coating", category: "Drying & Solid Processing", client: "", location: "", year: "", summary: "Drying and coating systems for finishing line.", description: "Engineering and supply of drying and coating equipment for an industrial finishing and coating line.", image: "67512b0c631970a86b689e0a/6763e5baf5e766a22f5b0b39_project-img-07.jpg", gallery: [], is_featured: false, order: 6, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Chemical Refinery", slug: "chemical-refinery", category: "Process Equipment", client: "", location: "", year: "", summary: "Process equipment for chemical refinery operations.", description: "Design, fabrication, and installation of process equipment for a chemical refinery.", image: "67512b0c631970a86b689e0a/6763e5ae545d4034af000de4_project-img-06.jpg", gallery: [], is_featured: true, order: 7, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Thermal Processing", slug: "thermal-processing", category: "Thermal Systems", client: "", location: "", year: "", summary: "Thermal processing systems for industrial applications.", description: "Engineering and execution of thermal processing systems including furnaces, ovens, and heat treatment equipment.", image: "67512b0c631970a86b689e0a/6763e59da0e4de8b4c4cfc9d_project-img-05.jpg", gallery: [], is_featured: false, order: 8, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "VA Tech Wabag -- Process Skids", slug: "va-tech-wabag-process-skids", category: "Oil & Gas / Desalination", client: "VA Tech Wabag", location: "", year: "", summary: "16 process skids with piping, valves & instruments, 20,000 inch-dia process piping, 8 storage tanks and 100 SS piping spools.", description: "Design, fabrication, and supply of 16 process skids with complete piping, valves, and instruments for a desalination project.", image: "67512b0c631970a86b689e0a/6763dc88e56d6870c57c4559_project-img-001.jpg", gallery: [], is_featured: true, order: 9, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Thermax -- 300 TPH Boiler Project", slug: "thermax-300-tph-boiler-project", category: "Power", client: "Thermax", location: "Mithapur", year: "", summary: "4 pressure sand filter vessels & 4 activated carbon filter vessels for the 300 TPH boiler & turbine generator project at Mithapur.", description: "Fabrication and supply of 4 pressure sand filter vessels and 4 activated carbon filter vessels for the 300 TPH boiler and turbine generator project at Mithapur.", image: "67512b0c631970a86b689e0a/6763dc94a00cc2543f78e360_project-img-002.jpg", gallery: [], is_featured: true, order: 10, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" },
+      { title: "Olon API India -- SS316L Reactors", slug: "olon-api-india-ss316l-reactors", category: "Pharmaceutical", client: "Olon API India", location: "Mahad", year: "", summary: "2KL, 4KL & 6KL SS316L reactors with interconnecting site piping at Mahad.", description: "Design, fabrication, and installation of 2KL, 4KL, and 6KL SS316L reactors with interconnecting site piping for pharmaceutical manufacturing at Mahad.", image: "67512b0c631970a86b689e0a/6763dcb19c81e80aad55612b_project-img-003.jpg", gallery: [], is_featured: true, order: 11, hero_image: "", client_name: "", client_category: "", date: "", website: "", content: "", client_review: "", client_review_author: "" }
     ];
     try {
       for (var i = 0; i < projects.length; i++) {
@@ -386,6 +467,21 @@ async function deleteCmsItem(collectionName, id) {
 function renderFieldInput(field, value) {
   const id = 'cms-field-' + field.key;
   if (value === undefined || value === null) value = field.default !== undefined ? field.default : '';
+
+  // Image fields with upload button
+  if (field.type === 'text' && field.key.toLowerCase().includes('image')) {
+    return '<div class="form-group">' +
+      '<label class="form-label" for="' + id + '">' + esc(field.label) + (field.required ? ' <span class="required">*</span>' : '') + '</label>' +
+      '<div style="display:flex;gap:8px;align-items:center;">' +
+        '<input type="text" id="' + id + '" name="' + field.key + '" class="form-input" value="' + esc(value) + '" placeholder="' + esc(field.placeholder || '') + '" style="flex:1;">' +
+        '<input type="file" id="cms-field-upload-' + field.key + '" accept="image/*" style="display:none;">' +
+        '<button type="button" class="btn btn-sm btn-secondary" onclick="document.getElementById(\'cms-field-upload-' + field.key + '\').click()">Upload</button>' +
+      '</div>' +
+      '<div id="cms-field-progress-' + field.key + '" style="display:none;font-size:12px;margin-top:4px;color:var(--muted);"></div>' +
+      (field.hint ? '<div class="form-hint">' + esc(field.hint) + '</div>' : '') +
+    '</div>';
+  }
+
   if (field.type === 'textarea') {
     const displayValue = Array.isArray(value) ? value.join('\n') : value;
     return '<div class="form-group">' +
@@ -582,6 +678,14 @@ window.CMS = {
         render: function () {
           const el = document.getElementById('admin-content');
           if (el) el.innerHTML = renderCmsEditorPage(name);
+
+          // Wire up image upload handlers for all image fields
+          CMS_COLLECTIONS[name].fields.forEach(function (f) {
+            if (f.type === 'text' && f.key.toLowerCase().includes('image')) {
+              handleImageUpload(f.key, 'projects/' + name);
+            }
+          });
+
           // Wire up form submit
           const form = document.getElementById('cms-form-' + name);
           if (form) {

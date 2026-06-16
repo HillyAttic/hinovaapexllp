@@ -15,31 +15,24 @@
   function renderCard(p) {
     var image = p.image || '67512b0c631970a86b689e0a/project-img-001.jpg';
     var link = p.slug ? ('project/' + p.slug + '.html') : 'projects.html';
-    var clientHtml = p.client
-      ? '<div class="project-one-client">' + esc(p.client) + (p.year ? ' · ' + esc(p.year) : '') + '</div>'
-      : '';
-    return '<div class="project-one-block w-dyn-item">' +
-      '<a href="' + esc(link) + '" class="project-card-link w-inline-block">' +
-        '<div class="project-one-image-wrap">' +
-          '<img loading="lazy" alt="' + esc(p.title || 'Project') + '" src="' + esc(image) + '" class="project-one-image">' +
-        '</div>' +
-        '<div class="project-one-content">' +
-          '<div class="category global-text">' + esc(p.category || 'Project') + '</div>' +
-          '<h2 class="project-one-title">' + esc(p.title || '') + '</h2>' +
-          clientHtml +
-          '<p class="project-one-desc">' + esc(p.summary || p.description || '') + '</p>' +
+    return '<div role="listitem" class="project-two-data w-dyn-item">' +
+      '<a href="' + esc(link) + '" class="project-two-link w-inline-block">' +
+        '<div class="project-two-image-wrap">' +
+          '<img src="' + esc(image) + '" loading="lazy" alt="' + esc(p.title || 'Project') + '" class="project-two-img">' +
+          '<div class="project-two-content">' +
+            '<div class="project-two-content-inner">' +
+              '<div class="category global-text">' + esc(p.category || 'Project') + '</div>' +
+              '<div class="project-two-title">' + esc(p.title || '') + '</div>' +
+            '</div>' +
+          '</div>' +
         '</div>' +
       '</a>' +
     '</div>';
   }
 
   async function load() {
-    var candidates = [
-      document.querySelector('.project-one-list'),
-      document.querySelector('.project-one-section .w-dyn-list'),
-      document.querySelector('[data-cms="projects"]')
-    ];
-    var list = candidates.find(Boolean);
+    var list = document.querySelector('.project-two-list.project-page') ||
+               document.querySelector('.project-two-wrap.project-page [role="list"]');
     if (!list) return;
     try {
       var firebaseConfig = {
