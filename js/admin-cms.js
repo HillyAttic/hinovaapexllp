@@ -578,6 +578,7 @@ function renderCmsListPage(collectionName, _retries) {
     ) + '</div></div>';
   } else {
     html += '<div class="card"><div class="card-body">' +
+      '<div class="data-table-wrapper">' +
       '<table class="data-table"><thead><tr>';
     def.listColumns.forEach(function (c) {
       html += '<th>' + esc(c.label) + '</th>';
@@ -605,7 +606,7 @@ function renderCmsListPage(collectionName, _retries) {
       '</td>';
       html += '</tr>';
     });
-    html += '</tbody></table></div></div>';
+    html += '</tbody></table></div></div></div>';
   }
 
   return html;

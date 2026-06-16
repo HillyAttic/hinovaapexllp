@@ -3067,16 +3067,176 @@ a.recent-item:hover,
 
 /* Responsive: stack table on small screens */
 @media (max-width: 768px) {
+  /* Data table wrapper for horizontal scroll */
+  .data-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -var(--spacing-md);
+    padding: 0 var(--spacing-md);
+  }
+
   .data-table {
     font-size: var(--font-size-xs);
+    min-width: 600px;
   }
+
   .data-table thead th,
   .data-table tbody td {
     padding: 10px 10px;
   }
+
   .cms-row-with-thumb .cms-row-title,
   .cms-row-with-thumb .cms-row-subtitle {
     max-width: 140px;
+  }
+
+  /* CMS page header adjustments */
+  .cms-page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+
+  .cms-page-header .btn {
+    width: 100%;
+  }
+
+  /* CMS editor form adjustments */
+  .cms-editor-form {
+    gap: var(--spacing-md);
+  }
+
+  .cms-editor-form .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cms-editor-form .form-actions {
+    flex-direction: column-reverse;
+    gap: var(--spacing-sm);
+  }
+
+  .cms-editor-form .form-actions .btn {
+    width: 100%;
+  }
+
+  /* CMS image upload area */
+  .cms-image-upload {
+    flex-direction: column;
+  }
+
+  .cms-image-preview {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cms-image-upload-controls {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .cms-image-upload-controls .btn {
+    width: 100%;
+  }
+
+  /* CMS gallery grid */
+  .cms-gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  /* CMS badge adjustments */
+  .cms-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+
+  /* Actions column - stack buttons */
+  .actions-col {
+    width: auto;
+  }
+
+  .actions-col .btn {
+    padding: 6px 10px;
+    font-size: var(--font-size-xs);
+  }
+
+  .actions-col .btn + .btn {
+    margin-left: 4px;
+  }
+
+  /* CMS empty state */
+  .cms-empty-state {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .cms-empty-state h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .cms-empty-state p {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Small mobile - further refinements */
+@media (max-width: 480px) {
+  .data-table {
+    min-width: 550px;
+    font-size: 11px;
+  }
+
+  .data-table thead th,
+  .data-table tbody td {
+    padding: 8px 8px;
+  }
+
+  .cms-thumb {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cms-row-with-thumb {
+    gap: 8px;
+  }
+
+  .cms-row-with-thumb .cms-row-title,
+  .cms-row-with-thumb .cms-row-subtitle {
+    max-width: 120px;
+    font-size: 11px;
+  }
+
+  .cms-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .actions-col .btn {
+    padding: 5px 8px;
+  }
+
+  .data-table .btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .data-table .btn-icon svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .cms-gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .cms-editor-form .form-label {
+    font-size: var(--font-size-sm);
+  }
+
+  .cms-editor-form .form-input,
+  .cms-editor-form .form-textarea,
+  .cms-editor-form .form-select {
+    font-size: var(--font-size-sm);
+    padding: 8px 12px;
   }
 }
 
