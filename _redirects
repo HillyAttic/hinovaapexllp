@@ -1,0 +1,3 @@
+# Serve the company logo when the bare /logo path is opened.
+# Exact-match only, so /logo/<file> assets in the logo folder keep serving directly.
+/logo /logo/logo.jpg 302
